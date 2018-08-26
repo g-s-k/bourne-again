@@ -5,7 +5,8 @@ alias ls='ls --color=auto'
 alias la='ls -lA'
 
 # set prompt
-RESET="$(tput sgr0)"
-PURPLE="$(tput setaf 5)"
+RESET="\[$(tput sgr0)\]"
+BLUE="\[$(tput setaf 4)\]"
+PURPLE="\[$(tput setaf 5)\]"
 
-PS1='${PURPLE}\u@\h \w\n${RESET}\$ '
+PS1="${BLUE}\u@\h ${PURPLE}\[$(tput smso)\]\D{%H:%M:%S}\[$(tput rmso)\] ${BLUE}\w${RESET}\n\$ "
