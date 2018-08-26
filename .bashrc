@@ -1,6 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+alias emc='emacsclient --alternate-editor="emacs -nw"'
+
 alias ls='ls --color=auto'
 alias la='ls -lA'
 
