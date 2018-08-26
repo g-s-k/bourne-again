@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR_IN=/media/space/music
+DIR_OUT=/media/space/itunes
+
+# sync directory structure, mp3s, and cover art
+rsync -av --exclude=*.flac $DIR_IN/ $DIR_OUT
+
+# find flacs in DIR_IN, filter out any where an mp3 already exists in DIR_OUT.
+# convert each of the remaining files to mp3 in DIR_OUT.
+comm -23 <(find $DIR_IN -name \*.flac -type f -exec bash -c 'echo "${0%.flac}"' {} \; | sort) \
+     <(find $DIR_OUT -name \*.mp3 -type f -exec bash -c 'fn="${0%.mp3}"; echo "${fn/$1/$2}"' {} $DIR_OUT $DIR_IN \; | sort) |\
+    parallel ffmpeg -i {}.flac -qscale:a 0 {=s:$DIR_IN:$DIR_OUT:=}.mp3
