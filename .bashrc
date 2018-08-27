@@ -17,7 +17,9 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # set prompt
-PS1="\[$(tput setaf 4)\]\u@\h \[$(tput setaf 5)$(tput smso)\]\D{%H:%M:%S}\[$(tput rmso)$(tput setaf 4)\] \w\[$(tput sgr0)\]\n\$ "
+PS1="\[$(tput setaf 4)\]\u@\h"
+PS1="$PS1 \[$(tput setaf 5)$(tput smso)\]\D{%H:%M:%S}"
+PS1="$PS1 \[$(tput rmso)$(tput setaf 4)\] \w\[$(tput sgr0)\]\n\$ "
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
