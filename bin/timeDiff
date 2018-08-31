@@ -1,0 +1,6 @@
+#!/bin/sh
+
+startTime=$(date -d "$1" +"%s")
+endTime=$(date -d "$2" +"%s")
+
+date -d "0 $endTime sec - $startTime sec" +"%H:%M"
