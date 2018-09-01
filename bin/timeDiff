@@ -3,4 +3,4 @@
 startTime=$(date -d "$1" +"%s")
 endTime=$(date -d "$2" +"%s")
 
-date -d "0 $endTime sec - $startTime sec" +"%H:%M"
+python -c "print('%0.1f' % (($endTime - $startTime) / 3600.0))"
