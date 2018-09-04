@@ -1,6 +1,8 @@
 #!/bin/sh
 
-startTime=$(date -d "$1" +"%s")
+startTime=$(date -d "${1:-09:00}" +"%s")
 endTime=$(date -d "${2:-$(date)}" +"%s")
 
-python -c "print('%0.1f' % (($endTime - $startTime) / 3600.0))"
+elapsedHrs=$(echo "scale=2; ($endTime - $startTime) / 3600" | bc)
+
+echo "${elapsedHrs%?}"
