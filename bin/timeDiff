@@ -1,6 +1,6 @@
 #!/bin/sh
 
 startTime=$(date -d "$1" +"%s")
-endTime=$(date -d "$2" +"%s")
+endTime=$(date -d "${2:-$(date)}" +"%s")
 
 python -c "print('%0.1f' % (($endTime - $startTime) / 3600.0))"
