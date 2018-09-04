@@ -1,5 +1,5 @@
 # emacs
-emc() { (emacsclient --alternate-editor="emacs" $* &) }
+emc() { (emacsclient --alternate-editor="emacs" $* > /dev/null 2>&1 &) }
 
 # ls aliases
 alias ls='ls --color=auto'
