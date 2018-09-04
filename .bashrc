@@ -17,9 +17,15 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # set prompt
-PS1="\[$(tput setaf 4)\]\u@\h"
-PS1="$PS1 \[$(tput setaf 5)$(tput smso)\]\D{%H:%M:%S}"
-PS1="$PS1 \[$(tput rmso)$(tput setaf 4)\] \w\[$(tput sgr0)\]\n\$ "
+RESET="\[$(tput sgr0)\]"
+BOLD="\[$(tput bold)\]"
+WHO="\[$(tput setaf 2)\]\u$RESET"
+WHAT="\[$(tput setaf 1)\]\h$RESET"
+WHEN="$BOLD\[$(tput setaf 5)\]\t$RESET"
+WHERE="\[$(tput setaf 4)\]\w$RESET"
+
+PS1="$WHO using $WHAT at $WHEN in $WHERE\n\$ "
+unset RESET BOLD WHEN WHO WHAT WHERE
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
