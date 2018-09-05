@@ -1,6 +1,20 @@
 #!/bin/sh
 
-startTime=$(date -d "${1:-09:00}" +"%s")
+# figure out where the start time is coming from
+startFile="$HOME/start_time"
+if [ "$#" = 0 ]; then
+    if [ -e "$startFile" ]; then
+        startArg=$(cat "$startFile")
+    else
+        echo "$startFile not found. Please enter a start time as an argument."
+        exit 1
+    fi
+else
+    startArg="$1"
+fi
+
+# get epoch-based start and end times, in seconds
+startTime=$(date -d "$startArg" +"%s")
 endTime=$(date -d "${2:-$(date)}" +"%s")
 
 # get interval, in truncated decimal hours
