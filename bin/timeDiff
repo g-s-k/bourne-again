@@ -3,6 +3,12 @@
 startTime=$(date -d "${1:-09:00}" +"%s")
 endTime=$(date -d "${2:-$(date)}" +"%s")
 
-elapsedHrs=$(echo "scale=2; ($endTime - $startTime) / 3600" | bc)
+# get interval, in truncated decimal hours
+bc <<EOF
+scale=1
+time=($endTime - $startTime) / 3600
+if(time<1 && time>0) print 0
+time
+EOF
 
-echo "${elapsedHrs%?}"
+exit 0
