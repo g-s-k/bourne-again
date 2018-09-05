@@ -19,13 +19,31 @@ shopt -s checkwinsize
 # set prompt
 RESET="\[$(tput sgr0)\]"
 BOLD="\[$(tput bold)\]"
-WHO="\[$(tput setaf 2)\]\u$RESET"
-WHAT="\[$(tput setaf 1)\]\h$RESET"
-WHEN="$BOLD\[$(tput setaf 5)\]\t$RESET"
-WHERE="\[$(tput setaf 4)\]\w$RESET"
+CONJ="\[$(tput setaf 4)\]"
 
-PS1="$WHO using $WHAT at $WHEN in $WHERE\n\$ "
-unset RESET BOLD WHEN WHO WHAT WHERE
+WHO="$BOLD\[$(tput setaf 2)\]\u$RESET $CONJ"
+WHAT="$BOLD\[$(tput setaf 5)\]\h$RESET $CONJ"
+WHEN="$BOLD\[$(tput setaf 1)\]\t$RESET $CONJ"
+WHERE="\[$(tput setaf 7)\]\w$RESET"
+
+PS1="${WHO}using ${WHAT}at ${WHEN}in $WHERE"
+
+if [ -e /usr/lib/git-core/git-sh-prompt ]; then
+    source /usr/lib/git-core/git-sh-prompt
+    GIT_PS1_SHOWDIRTYSTATE=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWUPSTREAM="verbose name"
+    GIT_PS1_DESCRIBE_STYLE="branch"
+    GIT_PS1_HIDE_IF_PWD_IGNORED=1
+
+    GITS='$(__git_ps1 "\n  on \[$(tput bold)$(tput setaf 6)\][%s]\[$(tput sgr0)\]")'
+    PS1="$PS1${GITS:+$CONJ$GITS$RESET}"
+fi
+
+PS1="$PS1\n\$ "
+
+unset RESET BOLD CONJ WHEN WHO WHAT WHERE
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
