@@ -1,0 +1,20 @@
+#!/bin/sh
+
+SESSION=music
+
+# start session
+tmux -2 new-session -d -s $SESSION
+
+# window for control
+tmux rename-window -t $SESSION 'control'
+tmux send-keys "ncmpcpp -h home.g-s-k.space" C-m
+
+# window for listening
+tmux new-window -t $SESSION:1 -n 'listening'
+tmux send-keys "mpv http://home.g-s-k.space:8000" C-m
+
+# set the default window
+tmux select-window -t $SESSION:0
+
+# attach
+tmux -2 attach -t $SESSION
