@@ -12,6 +12,8 @@ tmux send-keys "ncmpcpp -h home.g-s-k.space" C-m
 # window for listening
 tmux new-window -t $SESSION:1 -n 'listening'
 tmux send-keys "mpv http://home.g-s-k.space:8000" C-m
+tmux split-window -v
+tmux send-keys "alsamixer -Dhw" C-m
 
 # set the default window
 tmux select-window -t $SESSION:0
