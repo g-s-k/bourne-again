@@ -19,4 +19,5 @@ tmux send-keys "alsamixer -Dhw" C-m
 tmux select-window -t $SESSION:0
 
 # attach
+tmux bind-key Q kill-session
 tmux -2 attach -t $SESSION
