@@ -1,7 +1,27 @@
 #!/bin/bash
 
-for name in *; do
-    pushd $name
-    [[ -z $(git status -s 2>&1) ]] && git pull
-    popd
+recrsv=
+
+while getopts r name; do
+    case $name in
+        r) recrsv=1;;
+    esac
 done
+
+doPull() {
+    pushd "$1"
+    if [[ -z $(git status -s 2>&1) ]]; then
+        git pull
+    elif [[ -n "$2" ]] && ! [ -d .git ]; then
+        pullDir "$2"
+    fi
+    popd
+}
+
+pullDir() {
+    for name in *; do
+        [[ -d "$name" ]] && doPull "$name" "$1"
+    done
+}
+
+pullDir "$recrsv"
