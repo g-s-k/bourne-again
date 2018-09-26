@@ -2,6 +2,6 @@
 
 for name in *; do
     pushd $name
-    [[ -z $(git status -s) ]] && git pull
+    [[ -z $(git status -s 2>&1) ]] && git pull
     popd
 done
