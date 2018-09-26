@@ -1,6 +1,6 @@
 #!/bin/bash
 
-recrsv=
+recrsv=0
 
 while getopts r name; do
     case $name in
@@ -12,7 +12,7 @@ doPull() {
     pushd "$1"
     if [[ -z $(git status -s 2>&1) ]]; then
         git pull
-    elif [[ -n "$2" ]] && ! [ -d .git ]; then
+    elif (($2)) && ! [ -d .git ]; then
         pullDir "$2"
     fi
     popd
