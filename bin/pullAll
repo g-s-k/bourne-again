@@ -1,21 +1,30 @@
 #!/bin/bash
 
+cmd="pull"
 recrsv=0
+pdext=""
 
-while getopts r name; do
-    case $name in
-        r) recrsv=1;;
+while getopts ":c:rs" opt; do
+    case ${opt} in
+        r ) recrsv=1
+            ;;
+        s ) pdext="&>/dev/null"
+            ;;
+        c ) cmd="$OPTARG"
+            ;;
+        \?) echo "Usage: pullAll [-rs] [-c <command>]"
+            ;;
     esac
 done
 
 doPull() {
-    pushd "$1"
+    eval "pushd $pdext $1"
     if [[ -z $(git status -s 2>&1) ]]; then
-        git pull
+        eval "git ${cmd}"
     elif (($2)) && ! [ -d .git ]; then
         pullDir "$2"
     fi
-    popd
+    eval "popd $pdext"
 }
 
 pullDir() {
