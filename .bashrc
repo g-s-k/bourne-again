@@ -28,8 +28,9 @@ WHERE="\[$(tput setaf 7)\]\w$RESET"
 
 PS1="${WHO}using ${WHAT}at ${WHEN}in $WHERE"
 
-if [ -e /usr/lib/git-core/git-sh-prompt ]; then
-    source /usr/lib/git-core/git-sh-prompt
+gitps1() {
+  if [ -e "$1" ]; then
+    source "$1"
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -37,11 +38,14 @@ if [ -e /usr/lib/git-core/git-sh-prompt ]; then
     GIT_PS1_DESCRIBE_STYLE="branch"
     GIT_PS1_HIDE_IF_PWD_IGNORED=1
 
-    GITS='$(__git_ps1 "\n  on \[$(tput bold)$(tput setaf 6)\][%s]\[$(tput sgr0)\]")'
-    PS1="$PS1${GITS:+$CONJ$GITS$RESET}"
-fi
+    __git_ps1 "\n  on \[$(tput bold)$(tput setaf 6)\][%s]\[$(tput sgr0)\]"
+    return 0
+  fi
+  return 1
+}
 
-PS1="$PS1\n\$ "
+GITS=$(gitps1 /usr/lib/git-core/git-sh-prompt || gitps1 /usr/share/git/completion/git-prompt.sh || echo "")
+PS1="$PS1${GITS:+$CONJ$GITS$RESET}\n\$ "
 
 unset RESET BOLD CONJ WHEN WHO WHAT WHERE
 
