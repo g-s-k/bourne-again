@@ -9,3 +9,6 @@ alias l='ls -CF'
 
 # open files (inspired by PowerShell's Invoke-Item)
 ii() { (xdg-open "$@" 2>/dev/null &) }
+
+# screen lock
+alias i3l='i3lock -c $(openssl rand -hex 3)'
