@@ -1,0 +1,23 @@
+#!/bin/bash
+
+length=5
+dictFile=/usr/share/dict/words
+showS=0
+
+while getopts ":n:d:s" opt; do
+    case ${opt} in
+        n ) length="$OPTARG"
+            ;;
+        d ) dictFile="$OPTARG"
+            ;;
+        s ) showS=1
+            ;;
+        \?) echo "Usage: vocab [-s] [-n <length>] [-d <word file>] <letter>"
+    esac
+done
+
+letter=${@:$OPTIND:1}
+length=$((length-1))
+
+grep -i "^$letter.\{$length,\}" "$dictFile" |
+    ( (( $showS )) && cat || grep -v "'s"'$' )
