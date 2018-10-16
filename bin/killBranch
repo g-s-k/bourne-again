@@ -1,0 +1,26 @@
+#!/bin/bash
+
+checkStatus() {
+    return $([[ -z $(git status -s) ]])
+}
+
+mainBranch=master
+currentBranch=$(git branch | grep \* | cut -d ' ' -f2)
+otherBranches=$(git branch | grep -v \* | sed 's/^[[:space:]]*//')
+
+for branch in develop master; do
+    if [[ $currentBranch == $branch ]]; then
+        echo "Already on $branch."
+        exit 0;
+    fi
+
+    if [[ ! -z $(echo "$otherBranches" | grep $branch) ]]; then
+        mainBranch=$branch
+        break
+    fi
+done
+
+checkStatus &&
+    git checkout "$mainBranch" &&
+    checkStatus &&
+    git branch -d $currentBranch
