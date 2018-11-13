@@ -12,3 +12,6 @@ ii() { (xdg-open "$@" 2>/dev/null &) }
 
 # screen lock
 alias i3l='i3lock -c $(openssl rand -hex 3)'
+
+# docker-stats
+alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
