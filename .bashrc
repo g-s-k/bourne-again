@@ -47,6 +47,7 @@ PS1="$PS1\n\$ "
 unset RESET BOLD CONJ WHEN WHO WHAT WHERE
 
 # Alias definitions
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
+[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+
+# extra env vars
+[ -f "$HOME/.bash_vars" ] && source "$HOME/.bash_vars"
