@@ -15,3 +15,16 @@ alias i3l='i3lock -c $(openssl rand -hex 3)'
 
 # docker-stats
 alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
+
+# git
+merge-fast() { 
+  SRC_BRANCH=${1:-$(git branch -q | grep '\*' | cut -d' ' -f2)}
+  DEST_BRANCH=${2:-master}
+  git checkout "$DEST_BRANCH" &&\
+    git pull &&\
+    git checkout "$SRC_BRANCH" &&\
+    git rebase "$DEST_BRANCH" &&\
+    git checkout "$DEST_BRANCH" &&\
+    git push &&\
+    git branch -d "$SRC_BRANCH"
+}
