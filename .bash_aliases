@@ -2,10 +2,13 @@
 emc() { (emacsclient --alternate-editor="emacs" "$@" > /dev/null 2>&1 &) }
 
 # ls aliases
-alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -lA'
-alias l='ls -CF'
+if [[ "$(uname)" = "Darwin" ]]; then
+	alias ls='ls -G'
+else
+	alias ls='ls --color=auto'
+fi
+alias la='ls -A'
+alias ll='la -l'
 
 # open files (inspired by PowerShell's Invoke-Item)
 ii() { (xdg-open "$@" 2>/dev/null &) }
