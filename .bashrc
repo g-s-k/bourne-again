@@ -28,7 +28,7 @@ WHERE="\[$(tput setaf 7)\]\w$RESET"
 
 PS1="${WHO}using ${WHAT}at ${WHEN}in $WHERE"
 
-for f in /usr/lib/git-core/git-sh-prompt /usr/share/git/completion/git-prompt.sh; do
+for f in /usr/lib/git-core/git-sh-prompt /usr/share/git/completion/git-prompt.sh /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh; do
   if [ -e "$f" ]; then
     source "$f"
     GIT_PS1_SHOWDIRTYSTATE=1
