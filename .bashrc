@@ -16,6 +16,10 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# add git completions on linux
+GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
+[ -f $GIT_COMPLETION_FILE ] && source $GIT_COMPLETION_FILE
+
 # set prompt
 RESET="\[$(tput sgr0)\]"
 BOLD="\[$(tput bold)\]"
