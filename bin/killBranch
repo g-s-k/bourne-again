@@ -8,7 +8,7 @@ mainBranch=master
 currentBranch=$(git branch | grep \* | cut -d ' ' -f2)
 otherBranches=$(git branch | grep -v \* | sed 's/^[[:space:]]*//')
 
-for branch in develop master; do
+for branch in $1 develop master; do
     if [[ $currentBranch == $branch ]]; then
         echo "Already on $branch."
         exit 0;
