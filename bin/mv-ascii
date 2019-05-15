@@ -1,0 +1,10 @@
+#!/bin/bash
+
+destination="${*:$#:1}"
+
+for file in "${@:1:$(($# - 1))}"; do
+    base="$(basename "$file" | LANG=C sed 's/[\x80-\xFF]/_/g')"
+    newName="$destination/$base"
+    echo "$file -> $newName"
+    mv "$file" "$newName"
+done
