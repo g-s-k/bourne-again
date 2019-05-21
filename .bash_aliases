@@ -1,17 +1,30 @@
 #emacs
-emc() { (emacsclient --alternate-editor="emacs" "$@" > /dev/null 2>&1 &) }
+emc() { (emacsclient --alternate-editor="emacs" "$@" &> /dev/null &) }
 
 # ls aliases
-if [[ "$(uname)" = "Darwin" ]]; then
-	alias ls='ls -G'
+if which lsd &> /dev/null; then 
+  alias ls='lsd'
+  alias la='ls -a'
 else
-	alias ls='ls --color=auto'
+  if [[ "$(uname)" = "Darwin" ]]; then
+    alias ls='ls -G'
+  else
+    alias ls='ls --color=auto'
+  fi
+
+  alias la='ls -A'
 fi
-alias la='ls -A'
+
 alias ll='la -l'
 
 # open files (inspired by PowerShell's Invoke-Item)
-ii() { (xdg-open "$@" 2>/dev/null &) }
+ii() { 
+  if [[ "$(uname)" = "Darwin" ]]; then
+    (open "$@" &> /dev/null &)
+  else
+    (xdg-open "$@" &> /dev/null &)
+  fi
+}
 
 # screen lock
 alias i3l='i3lock -c $(openssl rand -hex 3)'
