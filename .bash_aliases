@@ -44,3 +44,5 @@ merge-fast() {
     git push &&\
     git branch -d "$SRC_BRANCH"
 }
+
+alias merge-conflicts='git diff --name-only --diff-filter=U'
