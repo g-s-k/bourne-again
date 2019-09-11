@@ -45,4 +45,7 @@ merge-fast() {
     git branch -d "$SRC_BRANCH"
 }
 
+_git_kill() { _git_checkout; }
+_git_pick_this() { _git_checkout; }
+
 alias merge-conflicts='git diff --name-only --diff-filter=U'
