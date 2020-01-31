@@ -1,0 +1,7 @@
+#!/bin/sh
+
+HOURS=${1:-8}
+NOW=$(date +"%s")
+
+END=$(echo "$NOW + $HOURS * 3600" | bc)
+date -d "@$END"
