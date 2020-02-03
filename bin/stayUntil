@@ -1,7 +1,9 @@
 #!/bin/sh
 
 HOURS=${1:-8}
-NOW=$(date +"%s")
+START=${2:-"$(cat ~/start_time)"}
+
+NOW=$(date -d "$START" +"%s")
 
 END=$(echo "$NOW + $HOURS * 3600" | bc)
 date -d "@$END"
