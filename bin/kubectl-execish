@@ -1,0 +1,8 @@
+#!/bin/sh
+
+POD_NAME_LIKE="$1"
+shift
+
+POD="$(kubectl get pods | awk '$1~/'"$POD_NAME_LIKE"'/{ print $1 }')"
+
+kubectl exec "$POD" $@
