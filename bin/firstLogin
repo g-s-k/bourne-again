@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ME="$(whoami)"
+
+last -s today --time-format iso "$ME" |\
+    awk '$1~/'"$ME"'/{ print $4 }' |\
+    tail -1

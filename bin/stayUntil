@@ -1,9 +1,9 @@
 #!/bin/sh
 
 HOURS=${1:-8}
-START=${2:-"$(cat ~/start_time)"}
+START=${2:-"$(firstLogin)"}
 
 NOW=$(date -d "$START" +"%s")
 
 END=$(echo "$NOW + $HOURS * 3600" | bc)
-date -d "@$END"
+date -d "@$END" +"%k:%M" | figlet -f slant | lolcat
