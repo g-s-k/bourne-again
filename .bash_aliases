@@ -32,6 +32,9 @@ alias i3l='i3lock -c $(openssl rand -hex 3)'
 # docker-stats
 alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
 
+# kubectl
+alias kc=kubectl
+
 # git
 merge-fast() { 
   SRC_BRANCH=${1:-$(git branch -q | grep '\*' | cut -d' ' -f2)}
