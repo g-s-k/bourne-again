@@ -1,15 +1,12 @@
 #!/bin/sh
 
-startArg=${1:-"$(firstLogin)"}
-
 # get epoch-based start and end times, in seconds
-startTime=$(date -d "$startArg" +"%s")
+startTime=$(date -d "${1:-$(firstLogin)}" +"%s")
 endTime=$(date -d "${2:-$(date)}" +"%s")
 
 # get interval, in truncated decimal hours
-bc <<EOF | figlet -f slant | lolcat
+echo "
 scale=1
 time=($endTime - $startTime) / 3600
 if(time<1 && time>0) print 0
-time
-EOF
+time" | bc | maybeLol

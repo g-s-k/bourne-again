@@ -5,5 +5,4 @@ START=${2:-"$(firstLogin)"}
 
 NOW=$(date -d "$START" +"%s")
 
-END=$(echo "$NOW + $HOURS * 3600" | bc)
-date -d "@$END" +"%k:%M" | figlet -f slant | lolcat
+date -d "@$(echo "$NOW + $HOURS * 3600" | bc)" +"%k:%M" | maybeLol

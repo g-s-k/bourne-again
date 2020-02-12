@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -t 1 ]; then
+    figlet -f slant | lolcat
+else
+    cat
+fi
