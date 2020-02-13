@@ -74,4 +74,4 @@ __make_prompt() {
 [ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
 
 # extra env vars
-[ -f "$HOME/.bash_vars" ] && source "$HOME/.bash_vars"
+if [ -f "$HOME/.bash_vars" ]; then source "$HOME/.bash_vars"; fi
