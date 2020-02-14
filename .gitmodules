@@ -31,3 +31,9 @@
 [submodule "pack/g-s-k/start/vim-toml"]
 	path = pack/g-s-k/start/vim-toml
 	url = git@github.com:cespare/vim-toml
+[submodule "pack/g-s-k/start/vim-closetag"]
+	path = pack/g-s-k/start/vim-closetag
+	url = git@github.com:alvan/vim-closetag
+[submodule "pack/g-s-k/start/vim-jsx-pretty"]
+	path = pack/g-s-k/start/vim-jsx-pretty
+	url = git@github.com:MaxMEllon/vim-jsx-pretty
