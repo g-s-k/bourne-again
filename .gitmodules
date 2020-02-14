@@ -28,3 +28,6 @@
 [submodule "pack/g-s-k/start/auto-pairs"]
 	path = pack/g-s-k/start/auto-pairs
 	url = git@github.com:jiangmiao/auto-pairs
+[submodule "pack/g-s-k/start/vim-toml"]
+	path = pack/g-s-k/start/vim-toml
+	url = git@github.com:cespare/vim-toml
