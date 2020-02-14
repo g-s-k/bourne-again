@@ -3,17 +3,13 @@ runtime! ftplugin/man.vim
 
 " appearance
 color torte
-set colorcolumn=81
-set cursorline
 set number
-set ruler
 set ttyfast
 
 " behavior
 set clipboard^=unnamed,unnamedplus
 set hidden
-set scrolloff=999
-set wildmode=longest:full,full
+set scrolloff=5
 
 " search
 set ignorecase
