@@ -10,4 +10,5 @@ this is me trying to keep things simple.
 
 ```
 ~ $ git clone git@github.com:g-s-k/vim-again .vim
+~ $ cd .vim && git submodule update --init
 ```
