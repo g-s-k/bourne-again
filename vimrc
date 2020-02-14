@@ -9,7 +9,7 @@ set ttyfast
 " behavior
 set clipboard^=unnamed,unnamedplus
 set hidden
-set scrolloff=5
+set scrolloff=10
 
 " search
 set ignorecase
