@@ -2,7 +2,7 @@
 runtime! ftplugin/man.vim
 
 " appearance
-color murphy
+color torte
 set colorcolumn=81
 set cursorline
 set number
