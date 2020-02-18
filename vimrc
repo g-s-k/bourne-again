@@ -7,6 +7,7 @@ set number
 set ttyfast
 
 " behavior
+set autochdir
 set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
