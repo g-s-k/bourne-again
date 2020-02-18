@@ -2,7 +2,7 @@
 runtime! ftplugin/man.vim
 
 " appearance
-color torte
+color delek
 set number
 set ttyfast
 
