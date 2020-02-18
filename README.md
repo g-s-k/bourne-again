@@ -11,7 +11,7 @@ Note that the JS/TS dependencies can be installed either globally or locally in 
 These power autocomplete, linting and jump-to-definition in their respective 
 language modes.
 
-- [`rls`](https://github.com/rust-lang/rls) for Rust
+- [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer) for Rust (binary must be named `ra_lsp_server`)
 - the npm package `typescript` for JS and TS
 - [`gopls`](https://github.com/golang/tools/tree/master/gopls) for Go
 
