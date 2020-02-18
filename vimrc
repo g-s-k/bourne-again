@@ -33,13 +33,20 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
 " linting
+let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
+\ 'go': ['gopls', 'golint'],
+\ 'less': ['prettier'],
 \ 'rust': ['cargo', 'rls']
 \}
 let g:ale_fixers = {
+\ 'go': ['gofmt'],
+\ 'javascript': ['prettier-eslint', 'eslint'],
+\ 'javascript.jsx': ['prettier-eslint', 'eslint'],
+\ 'less': ['prettier'],
 \ 'rust': ['rustfmt']
 \}
 
