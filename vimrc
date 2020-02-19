@@ -32,6 +32,10 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
+" vcs gutter indicators
+set signcolumn=yes
+set updatetime=100
+
 " linting
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
