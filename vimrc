@@ -36,6 +36,11 @@ set directory=~/.vim/.swp//
 set signcolumn=yes
 set updatetime=100
 
+" html tag autoclose
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
+let g:closetag_xhtml_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+
 " linting
 let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
