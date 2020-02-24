@@ -25,6 +25,8 @@ These provide additional functionality beyond the language servers.
 
 ### To use
 
+Install a font that supports powerline symbols and set it as your terminal default.
+
 ```
 ~ $ git clone git@github.com:g-s-k/vim-again .vim
 ~ $ cd .vim && git submodule update --init
