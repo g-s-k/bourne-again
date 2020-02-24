@@ -36,6 +36,7 @@ set directory=~/.vim/.swp//
 
 " vcs gutter indicators
 set signcolumn=yes
+highlight clear SignColumn
 set updatetime=100
 
 " html tag autoclose
