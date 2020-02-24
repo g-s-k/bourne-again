@@ -40,3 +40,9 @@
 [submodule "pack/g-s-k/start/vim-signify"]
 	path = pack/g-s-k/start/vim-signify
 	url = git@github.com:mhinz/vim-signify
+[submodule "pack/g-s-k/start/vim-javascript"]
+	path = pack/g-s-k/start/vim-javascript
+	url = git@github.com:pangloss/vim-javascript
+[submodule "pack/g-s-k/start/vim-airline-themes"]
+	path = pack/g-s-k/start/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes
