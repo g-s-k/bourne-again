@@ -39,6 +39,12 @@ set signcolumn=yes
 au VimEnter * highlight clear SignColumn 
 set updatetime=100
 
+" masochism
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
 " html tag autoclose
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
 let g:closetag_xhtml_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
