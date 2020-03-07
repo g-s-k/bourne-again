@@ -50,3 +50,6 @@ merge-fast() {
 
 _git_kill() { _git_checkout; }
 _git_pick_this() { _git_checkout; }
+
+# beets
+alias bla='beet ls -a'
