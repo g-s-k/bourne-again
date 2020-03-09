@@ -2,7 +2,7 @@
 runtime! ftplugin/man.vim
 
 " appearance
-color delek
+color slate
 set number
 set ttyfast
 let g:airline_theme = 'night_owl'
