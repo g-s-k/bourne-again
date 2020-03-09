@@ -1,19 +1,17 @@
 #emacs
 emc() { (emacsclient --alternate-editor="emacs" "$@" &> /dev/null &) }
 
-# ls aliases
-if which lsd &> /dev/null; then 
-  alias ls='lsd'
-  alias la='ls -a'
-else
-  if [[ "$(uname)" = "Darwin" ]]; then
-    alias ls='ls -G'
-  else
-    alias ls='ls --color=auto'
-  fi
+# fullscreen
+alias fullscreen='wmctrl -r :ACTIVE: -b toggle,fullscreen'
 
-  alias la='ls -A'
+# ls aliases
+if [[ "$(uname)" = "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
 fi
+
+alias la='ls -A'
 
 alias ll='la -l'
 
