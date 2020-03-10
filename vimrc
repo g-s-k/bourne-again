@@ -36,7 +36,7 @@ set directory=~/.vim/.swp//
 
 " vcs gutter indicators
 set signcolumn=yes
-au VimEnter * highlight clear SignColumn 
+au VimEnter * highlight clear SignColumn
 set updatetime=100
 
 " masochism
