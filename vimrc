@@ -75,3 +75,9 @@ let g:ale_rust_rls_executable = 'ra_lsp_server'
 
 nnoremap <C-M> :ALEFindReferences<CR>
 nnoremap <C-N> :ALEGoToDefinition<CR>
+
+" set ripgrep as grepprg
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
