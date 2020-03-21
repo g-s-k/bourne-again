@@ -33,7 +33,9 @@ let g:netrw_liststyle=3
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
-set viminfo+=n~/.vim/viminfo
+if !has('nvim')
+  set viminfo+=n~/.vim/viminfo
+endif
 
 " vcs gutter indicators
 set signcolumn=yes
