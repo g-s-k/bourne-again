@@ -92,6 +92,3 @@ alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
 alias kc=kubectl
 
 alias bla='beet ls -a'
-
-# extra env vars
-if [ -f "$HOME/.bash_vars" ]; then source "$HOME/.bash_vars"; fi

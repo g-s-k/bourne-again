@@ -10,6 +10,14 @@ to include other bits of my environment.
 3. clone this repository
 4. run `stow bourne-again`
 
+### other files
+
+`.bash_profile` is deliberately omitted. use that for site-specific configuration, like:
+
+- environment vars, including `PATH`
+- sourcing additional scripts
+- private aliases
+
 ## items of note
 
 - Git config is located at [.config/git/config](.config/git/config)
