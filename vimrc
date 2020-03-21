@@ -9,7 +9,6 @@ let g:airline_theme = 'night_owl'
 let g:airline_powerline_fonts = 1
 
 " behavior
-set autochdir
 set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
