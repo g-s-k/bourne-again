@@ -73,7 +73,23 @@ __make_prompt() {
 }
 
 # Alias definitions
-[ -f "$HOME/.bash_aliases" ] && source "$HOME/.bash_aliases"
+emc() { (emacsclient --alternate-editor="emacs" "$@" &> /dev/null &) }
+
+alias fullscreen='wmctrl -r :ACTIVE: -b toggle,fullscreen'
+
+if [[ "$(uname)" = "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+alias la='ls -A'
+alias ll='la -l'
+
+alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
+
+alias kc=kubectl
+
+alias bla='beet ls -a'
 
 # extra env vars
 if [ -f "$HOME/.bash_vars" ]; then source "$HOME/.bash_vars"; fi
