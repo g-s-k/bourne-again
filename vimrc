@@ -5,6 +5,7 @@ runtime! ftplugin/man.vim
 color slate
 set number
 set ttyfast
+set cursorline
 let g:airline_theme = 'night_owl'
 let g:airline_powerline_fonts = 1
 
