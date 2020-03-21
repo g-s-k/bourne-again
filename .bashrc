@@ -19,6 +19,8 @@ shopt -s checkwinsize
 # add git completions on linux
 GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
 [ -f $GIT_COMPLETION_FILE ] && source $GIT_COMPLETION_FILE
+_git_kill() { _git_checkout; }
+_git_pick_this() { _git_checkout; }
 
 # set prompt
 __git_prompt_configured=""
