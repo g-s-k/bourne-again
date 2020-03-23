@@ -78,6 +78,7 @@ let g:ale_fixers = {
 \ 'go': ['gofmt'],
 \ 'javascript': ['prettier-eslint', 'eslint'],
 \ 'javascript.jsx': ['prettier-eslint', 'eslint'],
+\ 'javascriptreact': ['prettier-eslint', 'eslint'],
 \ 'less': ['prettier'],
 \ 'rust': ['rustfmt']
 \}
