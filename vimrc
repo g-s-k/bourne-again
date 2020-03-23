@@ -4,6 +4,7 @@ runtime! ftplugin/man.vim
 " appearance
 color slate
 set number
+set showcmd
 set ttyfast
 set cursorline
 let g:airline_theme = 'night_owl'
