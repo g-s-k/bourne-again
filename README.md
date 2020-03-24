@@ -12,17 +12,26 @@ to include other bits of my environment.
 
 ### other files
 
-`.bash_profile` is deliberately omitted. use that for site-specific configuration, like:
+`.profile`, `.bash_profile` and, `.bash_site` are deliberately omitted. 
 
-- environment vars, including `PATH`
-- sourcing additional scripts
-- private aliases
+#### on Linux
+
+- use `.profile` (sourced at login by your graphical shell) for environment
+  vars, including `PATH`
+- use `.bash_site` (sourced at the end of the included `.bashrc`) to source
+  additional site-specific scripts and assign private aliases
+
+#### on macOS
+
+- use `.bash_profile` (sourced when Terminal.app is opened) for all
+  site-specific configuration
 
 ## items of note
 
-- Git config is located at [.config/git/config](.config/git/config)
-- URXvt config is in [.Xresources](.Xresources)
-- scripts i use often are in [bin](bin)
+- Git config is located at [`.config/git/config`](.config/git/config)
+- Tmux config is in [`.tmux.conf`](.tmux.conf)
+- URXvt config is in [`.Xresources`](.Xresources)
+- scripts i use often are in [`bin`](bin)
 
 ## see also
 

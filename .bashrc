@@ -92,3 +92,5 @@ alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
 alias kc=kubectl
 
 alias bla='beet ls -a'
+
+[ -r "$HOME/.bash_site" ] && . "$HOME/.bash_site"
