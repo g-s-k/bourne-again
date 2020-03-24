@@ -1,5 +1,6 @@
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
 set show-all-if-ambiguous on
 set editing-mode vi
+
+"\C-l": clear-screen
+"\e[A": history-search-backward
+"\e[B": history-search-forward

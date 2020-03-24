@@ -87,6 +87,10 @@ fi
 alias la='ls -A'
 alias ll='la -l'
 
+if [[ "$(uname)" = "Linux" ]]; then
+  alias xc='xclip -selection clipboard'
+fi
+
 alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
 
 alias kc=kubectl
