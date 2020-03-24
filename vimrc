@@ -6,7 +6,11 @@ color slate
 set number
 set showcmd
 set ttyfast
+
 set cursorline
+highlight clear CursorLine
+highlight CursorLineNr cterm=standout
+
 let g:airline_theme = 'night_owl'
 let g:airline_powerline_fonts = 1
 
