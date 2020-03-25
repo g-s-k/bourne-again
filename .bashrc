@@ -97,4 +97,10 @@ alias kc=kubectl
 
 alias bla='beet ls -a'
 
+# hacky fix to disable scroll wheel in alternate screen
+ps -p $(ps -p $$ -o ppid | grep -vF PPID) -o args | grep -q gnome-terminal
+if [[ $? = 0 ]]; then
+  printf '\e[?1007l'
+fi
+
 [ -r "$HOME/.bash_site" ] && . "$HOME/.bash_site"
