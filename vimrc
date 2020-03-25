@@ -93,9 +93,13 @@ endif
 
 nnoremap <C-M> :ALEFindReferences<CR>
 nnoremap <C-N> :ALEGoToDefinition<CR>
+nnoremap [r :ALEPreviousWrap<CR>
+nnoremap ]r :ALENextWrap<CR>
 
 " set ripgrep as grepprg
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
+
+nnoremap <C-*> :grep <cword><CR>
