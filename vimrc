@@ -102,4 +102,4 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-nnoremap <C-*> :grep <cword><CR>
+noremap <C-F> :grep <cword><CR>
