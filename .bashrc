@@ -1,16 +1,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# don't put lines starting with space in the history
+# also erase word-for-word duplicates
+HISTCONTROL=ignorespace:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# for history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTFILE="${XDG_DATA_HOME:-"$HOME/.local/share"}/bash/history"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -43,6 +44,8 @@ PROMPT_COMMAND=__make_prompt
 
 __make_prompt() {
     local EXIT="$?"
+    history -a
+
     PS1=""
 
     local RESET="\[$(tput sgr0)\]"
