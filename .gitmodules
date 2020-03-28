@@ -46,3 +46,6 @@
 [submodule "pack/g-s-k/start/vim-airline-themes"]
 	path = pack/g-s-k/start/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes
+[submodule "pack/g-s-k/start/vim-mustache-handlebars"]
+	path = pack/g-s-k/start/vim-mustache-handlebars
+	url = git@github.com:mustache/vim-mustache-handlebars
