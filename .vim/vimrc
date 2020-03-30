@@ -33,6 +33,7 @@ nnoremap <C-H> <C-W><C-H>
 " search
 set ignorecase
 set smartcase
+set nohlsearch
 
 " tabs
 set expandtab
