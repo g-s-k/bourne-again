@@ -4,8 +4,12 @@ runtime! ftplugin/man.vim
 " appearance
 color slate
 set number
-set showcmd
-set ttyfast
+
+if !has("nvim")
+  " both of these are true by default in neovim
+  set showcmd
+  set ttyfast
+endif
 
 set cursorline
 au VimEnter * highlight clear CursorLine
@@ -63,38 +67,22 @@ inoremap <Left> <nop>
 inoremap <Right> <nop>
 
 " html tag autoclose
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
-let g:closetag_xhtml_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx'
+let g:closetag_filetypes =
+\ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
+let g:closetag_xhtml_filetypes =
+\ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 
 " linting
 let g:airline#extensions#ale#enabled = 1
-let g:ale_completion_enabled = 1
-set completeopt+=noinsert
 let g:ale_fix_on_save = 1
-
-let g:ale_linters = {
-\ 'go': ['gopls', 'golint'],
-\ 'less': ['prettier'],
-\ 'rust': ['cargo', 'rls']
-\}
-let g:ale_fixers = {
-\ 'go': ['gofmt'],
-\ 'javascript': ['prettier-eslint', 'eslint'],
-\ 'javascript.jsx': ['prettier-eslint', 'eslint'],
-\ 'javascriptreact': ['prettier-eslint', 'eslint'],
-\ 'less': ['prettier'],
-\ 'rust': ['rustfmt']
-\}
-
-if executable('ra_lsp_server')
-  let g:ale_rust_rls_executable = 'ra_lsp_server'
-endif
+set omnifunc=ale#completion#OmniFunc
 
 nnoremap <C-M> :ALEFindReferences<CR>
 nnoremap <C-N> :ALEGoToDefinition<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 nnoremap ]r :ALENextWrap<CR>
+
 
 " set ripgrep as grepprg
 if executable("rg")
