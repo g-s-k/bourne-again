@@ -2,3 +2,6 @@
 .bash_profile
 .bash_site
 .cfg
+.vim/.netrwhist
+.vim/viminfo*
+
