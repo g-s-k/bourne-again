@@ -11,7 +11,7 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 1. clone this repo like so: `git clone --bare <url> $HOME/.cfg`
 2. make this alias for convenience (note that this alias is also defined in
    `.bashrc`): `alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'`
-3. run this command to populate the files: `cfg checkout --recurse-submodules`
+3. run this command to populate the files: `cfg checkout && cfg submodule update --init`
 4. run this command to improve your life greatly: `cfg config --local
    status.showUntrackedFiles no`
 
