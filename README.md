@@ -3,12 +3,17 @@
 originally this repo was just for my `bash` configuration, but it has up-scoped
 to include other bits of my environment.
 
+for more instructions and discussion on how it works, see [this
+article](https://www.atlassian.com/git/tutorials/dotfiles)
+
 ## usage
 
-1. install GNU Stow
-2. make a directory in your home directory (e.g. `~/dotfiles`) and enter it
-3. clone this repository
-4. run `stow bourne-again`
+1. clone this repo like so: `git clone --bare <url> $HOME/.cfg`
+2. make this alias for convenience (note that this alias is also defined in
+   `.bashrc`): `alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'`
+3. run this command to populate the files: `cfg checkout`
+4. run this command to improve your life greatly: `cfg config --local
+   status.showUntrackedFiles no`
 
 ### other files
 
