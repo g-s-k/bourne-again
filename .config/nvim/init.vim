@@ -5,6 +5,8 @@ packadd nvim-lsp
 lua <<EOF
   local lsp = require'nvim_lsp'
 
+  lsp.bashls.setup{}
+  lsp.cssls.setup{}
   lsp.dockerls.setup{}
   lsp.gopls.setup{}
   lsp.html.setup{}
