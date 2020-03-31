@@ -1,4 +1,4 @@
-source ~/.vim/vimrc
+source ~/.config/vim/vimrc
 
 packadd nvim-lsp
 

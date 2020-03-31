@@ -17,7 +17,9 @@ export HISTFILE="${XDG_DATA_HOME:-"$HOME/.local/share"}/bash/history"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# editor configuration
 export EDITOR=vim
+export VIMINIT='let $MYVIMRC="'"${XDG_CONFIG_HOME:-$HOME/.config}"'/vim/vimrc" | source $MYVIMRC'
 
 # add git completions on linux
 GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
