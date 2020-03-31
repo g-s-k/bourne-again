@@ -11,33 +11,22 @@ end
 set -x VIMINIT "let \$MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source \$MYVIMRC"
 
 # aliases
-function fullscreen
-  wmctrl -r :ACTIVE: -b toggle,fullscreen
+alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
+
+if type -q wmctrl
+  alias fullscreen 'wmctrl -r :ACTIVE: -b toggle,fullscreen'
 end
 
-function xc
-  if test (uname) = "Darwin"
-    pbcopy $argv
-  else
-    xclip --selection clipboard $argv
-  end
+if test (uname) = "Darwin"
+  alias xc pbcopy
+else
+  alias xc 'xclip --selection clipboard'
 end
 
-function dost
-  docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}" $argv
-end
+alias dost 'docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
+alias kc kubectl
 
-function kc
-  kubectl $argv
-end
-
-function bla
-  beet ls -a $argv
-end
-
-function cfg
-  git --git-dir="$HOME/.cfg/" --work-tree="$HOME" $argv
-end
+alias bla 'beet ls -a'
 
 # hacky fix for tmux in gnome-terminal
 if ps -p (ps -p $fish_pid -o ppid | grep -vF PPID | string trim) -o args | grep -q gnome-terminal
