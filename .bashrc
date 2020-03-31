@@ -100,6 +100,8 @@ alias kc=kubectl
 
 alias bla='beet ls -a'
 
+alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # hacky fix to disable scroll wheel in alternate screen
 ps -p $(ps -p $$ -o ppid | grep -vF PPID) -o args | grep -q gnome-terminal
 if [[ $? = 0 ]]; then
