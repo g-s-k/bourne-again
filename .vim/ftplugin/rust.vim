@@ -1,6 +1,6 @@
 let b:ale_fixers = ['rustfmt', 'remove_trailing_lines', 'trim_whitespace']
-let b:ale_linters = ['cargo', 'rls']
+let b:ale_linters = ['cargo']
 
-if executable('ra_lsp_server')
-  let b:ale_rust_rls_executable = 'ra_lsp_server'
+if executable('rust-analyzer')
+  let b:ale_linters = ['cargo', 'rls']
 endif

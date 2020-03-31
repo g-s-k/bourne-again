@@ -9,7 +9,7 @@ lua <<EOF
   lsp.gopls.setup{}
   lsp.html.setup{}
   lsp.jsonls.setup{}
-  lsp.rust_analyzer.setup{ cmd = { 'ra_lsp_server' } }
+  lsp.rust_analyzer.setup{}
   lsp.tsserver.setup{}
   lsp.vimls.setup{}
 EOF
