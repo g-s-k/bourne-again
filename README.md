@@ -11,13 +11,13 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 1. clone this repo like so: `git clone --bare <url> $HOME/.cfg`
 2. make this alias for convenience (note that this alias is also defined in
    `.bashrc`): `alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'`
-3. run this command to populate the files: `cfg checkout`
+3. run this command to populate the files: `cfg checkout --recurse-submodules`
 4. run this command to improve your life greatly: `cfg config --local
    status.showUntrackedFiles no`
 
 ### other files
 
-`.profile`, `.bash_profile` and, `.bash_site` are deliberately omitted. 
+`.profile`, `.bash_profile` and, `.bash_site` are deliberately omitted.
 
 #### on Linux
 
@@ -33,11 +33,8 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## items of note
 
+- Vim config is in [`.vim`](.vim). more information on setup is in a readme there.
 - Git config is located at [`.config/git/config`](.config/git/config)
 - Tmux config is in [`.tmux.conf`](.tmux.conf)
 - URXvt config is in [`.Xresources`](.Xresources)
 - scripts i use often are in [`bin`](bin)
-
-## see also
-
-- my [vim config](https://github.com/g-s-k/vim-again)

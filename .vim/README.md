@@ -1,33 +1,39 @@
-# a more minimal Vim configuration
+# my Vim configuration
 
 this is me trying to keep things simple.
 
 ### External dependencies
 
-Note that the JS/TS dependencies can be installed either globally or locally in each project.
+Note that the JS/TS dependencies can be installed either globally or locally in
+each project.
 
 #### Language servers
 
-These power autocomplete, linting and jump-to-definition in their respective 
-language modes.
+These power autocomplete, linting and jump-to-definition in their respective
+language modes. See [ALE](https://github.com/dense-analysis/ale) and
+[nvim-lsp](https://github.com/neovim/nvim-lsp) for more info here.
 
-- [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer) for Rust (binary must be named `ra_lsp_server`)
-- the npm package `typescript` for JS and TS
+- [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer) for Rust
+  (binary must be named `ra_lsp_server`)
 - [`gopls`](https://github.com/golang/tools/tree/master/gopls) for Go
+- the following npm packages (all can be installed with `:LspInstall` in
+  neovim):
+  - `dockerfile-language-server-nodejs` for Dockerfiles
+  - `html-languageserver` for HTML
+  - `typescript` for ALE linting in JS and TS
+  - `typescript-language-server` for neovim linting in JS and TS
+  - `vim-language-server` for vimscript
+  - `vscode-json-languageserver` for JSON
 
 #### Linters and fixers
 
 These provide additional functionality beyond the language servers.
 
 - [`rustfmt`](https://github.com/rust-lang/rustfmt) for autoformatting Rust 
-- `prettier` and `eslint` for JS and TS quality-of-life
+- `prettier-eslint` and `eslint` for JS and TS quality-of-life
 - [`golint`](https://github.com/golang/lint) for style linting in Go
 
-### To use
+### Other important notes
 
-Install a font that supports powerline symbols and set it as your terminal default.
-
-```
-~ $ git clone git@github.com:g-s-k/vim-again .vim
-~ $ cd .vim && git submodule update --init
-```
+Install a font that supports powerline symbols and set it as your terminal
+default.
