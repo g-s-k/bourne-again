@@ -10,26 +10,39 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 
 1. clone this repo like so: `git clone --bare <url> $HOME/.cfg`
 2. make this alias for convenience (note that this alias is also defined in
-   `.bashrc`): `alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'`
+   `.bashrc` and `config.fish`): `alias cfg='git --git-dir=$HOME/.cfg
+   --work-tree=$HOME'`
 3. run this command to populate the files: `cfg checkout && cfg submodule update --init`
 4. run this command to improve your life greatly: `cfg config --local
    status.showUntrackedFiles no`
 
-### other files
+### site-specific configuration
+
+#### for fish
+
+use universal variables (`set -U ...`) to customize the shell environment. one
+very helpful one is
+[`fish_user_paths`](https://fishshell.com/docs/current/index.html?highlight=fish_user_paths#special-variables)
+for executables. at a minimum, add `$HOME/.local/bin` to use the scripts
+included here. if you have additional functions or aliases, place them in the
+conventional spot (`$HOME/.config/fish/functions/`)
+
+#### for bash
 
 `.profile`, `.bash_profile` and, `.bash_site` are deliberately omitted.
 
-#### on Linux
+##### on Linux
 
 - use `.profile` (sourced at login by your graphical shell) for environment
   vars, including `PATH`
 - use `.bash_site` (sourced at the end of the included `.bashrc`) to source
   additional site-specific scripts and assign private aliases
 
-#### on macOS
+##### on macOS
 
 - use `.bash_profile` (sourced when Terminal.app is opened) for all
   site-specific configuration
+
 
 ## items of note
 
@@ -37,6 +50,5 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
   in a readme there.
 - Git config is located at [`.config/git/config`](../.config/git/config)
 - Tmux config is in [`.tmux.conf`](../.tmux.conf)
-- URXvt config is in [`.Xresources`](../.Xresources)
 - scripts i use often are in [`.local/bin`](../.local/bin). make sure you add it
   to `$PATH` in order to use them.
