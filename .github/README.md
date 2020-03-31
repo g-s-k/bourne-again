@@ -33,10 +33,10 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## items of note
 
-- Vim config is in [`.config/vim`](.config/vim). more information on setup is
+- Vim config is in [`.config/vim`](../.config/vim). more information on setup is
   in a readme there.
-- Git config is located at [`.config/git/config`](.config/git/config)
-- Tmux config is in [`.tmux.conf`](.tmux.conf)
-- URXvt config is in [`.Xresources`](.Xresources)
-- scripts i use often are in [`.local/bin`](.local/bin). make sure you add it
+- Git config is located at [`.config/git/config`](../.config/git/config)
+- Tmux config is in [`.tmux.conf`](../.tmux.conf)
+- URXvt config is in [`.Xresources`](../.Xresources)
+- scripts i use often are in [`.local/bin`](../.local/bin). make sure you add it
   to `$PATH` in order to use them.
