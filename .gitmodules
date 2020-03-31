@@ -50,5 +50,5 @@
 	path = .vim/pack/g-s-k/start/vim-mustache-handlebars
 	url = git@github.com:mustache/vim-mustache-handlebars
 [submodule ".local/share/nvim/pack/g-s-k/start/nvim-lsp"]
-	path = .local/share/nvim/pack/g-s-k/start/nvim-lsp
+	path = .local/share/nvim/site/pack/g-s-k/start/nvim-lsp
 	url = git@github.com:neovim/nvim-lsp
