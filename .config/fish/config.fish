@@ -43,3 +43,8 @@ end
 if ps -p (ps -p $fish_pid -o ppid | grep -vF PPID | string trim) -o args | grep -q gnome-terminal
   printf '\e[?1007l'
 end
+
+# nvm
+if test -s "$HOME/.nvm/nvm.sh"
+  bass source "$HOME/.nvm/nvm.sh"
+end
