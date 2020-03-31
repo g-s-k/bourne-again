@@ -16,11 +16,12 @@ language modes. See [ALE](https://github.com/dense-analysis/ale) and
 - [`rust-analyzer`](https://github.com/rust-analyzer/rust-analyzer) for Rust
   (binary must be named `ra_lsp_server`)
 - [`gopls`](https://github.com/golang/tools/tree/master/gopls) for Go
+- the `typescript` package from npm for ALE linting in JS and TS (not needed
+  for neovim)
 - the following npm packages (all can be installed with `:LspInstall` in
   neovim):
   - `dockerfile-language-server-nodejs` for Dockerfiles
   - `html-languageserver` for HTML
-  - `typescript` for ALE linting in JS and TS
   - `typescript-language-server` for neovim linting in JS and TS
   - `vim-language-server` for vimscript
   - `vscode-json-languageserver` for JSON
