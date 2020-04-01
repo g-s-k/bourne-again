@@ -8,13 +8,20 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## usage
 
-1. clone this repo like so: `git clone --bare <url> $HOME/.cfg`
-2. make this alias for convenience (note that this alias is also defined in
-   `.bashrc` and `config.fish`): `alias cfg='git --git-dir=$HOME/.cfg
-   --work-tree=$HOME'`
-3. run this command to populate the files: `cfg checkout && cfg submodule update --init`
-4. run this command to improve your life greatly: `cfg config --local
-   status.showUntrackedFiles no`
+```shell
+  # clone this repo
+$ git clone --bare <url> $HOME/.cfg
+  # make an alias
+$ alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'
+  # populate the actual files
+$ cfg checkout && cfg submodule update --init
+  # only view explicitly tracked files when you run `cfg status`
+$ cfg config --local status.showUntrackedFiles no
+```
+
+note that the alias defined in the second step is identical to the ones in both
+`.bashrc` and `config.fish`, so you can use it in later sessions without a
+problem.
 
 ### site-specific configuration
 
