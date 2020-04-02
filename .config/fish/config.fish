@@ -9,6 +9,7 @@ end
 
 # bindings
 fish_vi_key_bindings
+bind -M insert \cp accept-autosuggestion
 
 # vim
 set -x VIMINIT "let \$MYVIMRC=\"$XDG_CONFIG_HOME/vim/vimrc\" | source \$MYVIMRC"
