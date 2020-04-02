@@ -110,4 +110,4 @@ if [[ $? = 0 ]]; then
   printf '\e[?1007l'
 fi
 
-[ -r "$HOME/.bash_site" ] && . "$HOME/.bash_site"
+if [ -r "$HOME/.bash_site" ]; then . "$HOME/.bash_site"; fi
