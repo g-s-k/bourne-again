@@ -24,7 +24,7 @@ end
 if test (uname) = "Darwin"
   alias xc pbcopy
 else
-  alias xc 'xclip --selection clipboard'
+  alias xc 'xclip -selection clipboard'
 end
 
 alias dost 'docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
