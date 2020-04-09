@@ -22,6 +22,7 @@ let g:airline_powerline_fonts = 1
 set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
+let mapleader = ","
 
 " splits
 set splitright
@@ -99,8 +100,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fix_on_save = 1
 set omnifunc=ale#completion#OmniFunc
 
-nnoremap <C-M> :ALEFindReferences<CR>
-nnoremap <C-N> :ALEGoToDefinition<CR>
+nnoremap <Leader>r :ALERename<CR>
+nnoremap <Leader>f :ALEFindReferences<CR>
+nnoremap <Leader>d :ALEGoToDefinition<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 nnoremap ]r :ALENextWrap<CR>
 
@@ -110,4 +112,6 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
-noremap gr :grep <cword><CR>
+" https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
+noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
+noremap <Leader>c :cclose<CR>

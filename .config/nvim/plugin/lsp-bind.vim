@@ -1,5 +1,5 @@
 function BindNvimLspCommands()
   setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  nnoremap <C-M> <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <C-N> <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <C-[> <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <C-K> <cmd>lua vim.lsp.buf.definition()<CR>
 endfunction
