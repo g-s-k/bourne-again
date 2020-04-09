@@ -22,7 +22,7 @@ let g:airline_powerline_fonts = 1
 set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
-let mapleader = ","
+let mapleader = " "
 
 " splits
 set splitright
