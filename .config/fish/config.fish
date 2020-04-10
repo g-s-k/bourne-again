@@ -19,6 +19,8 @@ if type -q wmctrl
   alias fullscreen 'wmctrl -r :ACTIVE: -b toggle,fullscreen'
 end
 
+alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+
 if test (uname) = "Darwin"
   alias xc pbcopy
 else

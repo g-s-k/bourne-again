@@ -94,6 +94,8 @@ alias ll='la -l'
 
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+alias tmux="tmux -f ${XDG_CONFIG_HOME:-"$HOME/.config"}/tmux/tmux.conf"
+
 # hacky fix to disable scroll wheel in alternate screen
 ps -p $(ps -p $$ -o ppid | grep -vF PPID) -o args | grep -q gnome-terminal
 if [[ $? = 0 ]]; then
