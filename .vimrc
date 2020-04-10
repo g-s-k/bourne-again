@@ -45,7 +45,7 @@ let g:netrw_liststyle=3
 
 " operational files
 if !has('nvim')
-  source ~/.config/vim/xdg.vim
+  source $HOME/.config/vim/xdg.vim
 endif
 
 " vcs gutter indicators
