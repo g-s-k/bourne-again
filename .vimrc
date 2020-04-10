@@ -4,12 +4,8 @@ runtime! ftplugin/man.vim
 " appearance
 color slate
 set number
-
-if !has("nvim")
-  " both of these are true by default in neovim
-  set showcmd
-  set ttyfast
-endif
+set showcmd
+set ttyfast
 
 set cursorline
 au VimEnter * highlight clear CursorLine
@@ -49,30 +45,7 @@ let g:netrw_liststyle=3
 
 " operational files
 if !has('nvim')
-  if empty($XDG_CACHE_HOME)
-    let $XDG_CACHE_HOME = '~/.cache'
-  endif
-
-  set undodir=$XDG_CACHE_HOME/vim,~/,/tmp
-  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-
-  if empty($XDG_CONFIG_HOME)
-    let $XDG_CONFIG_HOME = '~/.config'
-  endif
-
-  set runtimepath-=~/.vim
-  set runtimepath^=$XDG_CONFIG_HOME/vim
-  set runtimepath-=~/.vim/after
-  set runtimepath+=$XDG_CONFIG_HOME/vim/after
-
-  set packpath-=~/.vim
-  set packpath^=$XDG_CONFIG_HOME/vim
-  set packpath-=~/.vim/after
-  set packpath+=$XDG_CONFIG_HOME/vim/after
-
-  let $MYVIMRC = $XDG_CONFIG_HOME . "/vim/vimrc"
+  source ~/.config/vim/xdg.vim
 endif
 
 " vcs gutter indicators
@@ -81,10 +54,10 @@ au VimEnter * highlight clear SignColumn
 set updatetime=100
 
 " masochism
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+noremap <Up> :echom "use K"<CR>
+noremap <Down> :echom "use J"<CR>
+noremap <Left> :echom "use H"<CR>
+noremap <Right> :echom "use L"<CR>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
