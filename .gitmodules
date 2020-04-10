@@ -1,60 +1,60 @@
 [submodule "pack/g-s-k/start/vim-surround"]
-	path = .config/vim/pack/g-s-k/start/vim-surround
+	path = .config/vim/pack/shared/start/vim-surround
 	url = git@github.com:tpope/vim-surround
 [submodule "pack/g-s-k/start/vim-repeat"]
-	path = .config/vim/pack/g-s-k/start/vim-repeat
+	path = .config/vim/pack/shared/start/vim-repeat
 	url = git@github.com:tpope/vim-repeat
 [submodule "pack/g-s-k/start/vim-sensible"]
-	path = .config/vim/pack/g-s-k/start/vim-sensible
+	path = .config/vim/pack/shared/start/vim-sensible
 	url = git@github.com:tpope/vim-sensible
 [submodule "pack/g-s-k/start/vim-fugitive"]
-	path = .config/vim/pack/g-s-k/start/vim-fugitive
+	path = .config/vim/pack/shared/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive
 [submodule "pack/g-s-k/start/vim-commentary"]
-	path = .config/vim/pack/g-s-k/start/vim-commentary
+	path = .config/vim/pack/shared/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary
 [submodule "pack/g-s-k/start/vim-jdaddy"]
-	path = .config/vim/pack/g-s-k/start/vim-jdaddy
+	path = .config/vim/pack/shared/start/vim-jdaddy
 	url = git@github.com:tpope/vim-jdaddy
 [submodule "pack/g-s-k/start/vim-unimpaired"]
-	path = .config/vim/pack/g-s-k/start/vim-unimpaired
+	path = .config/vim/pack/shared/start/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired
 [submodule "pack/g-s-k/start/ale"]
-	path = .config/vim/pack/g-s-k/start/ale
+	path = .config/vim/pack/shared/start/ale
 	url = git@github.com:dense-analysis/ale
 [submodule "pack/g-s-k/start/vim-airline"]
-	path = .config/vim/pack/g-s-k/start/vim-airline
+	path = .config/vim/pack/shared/start/vim-airline
 	url = git@github.com:vim-airline/vim-airline
 [submodule "pack/g-s-k/start/auto-pairs"]
-	path = .config/vim/pack/g-s-k/start/auto-pairs
+	path = .config/vim/pack/shared/start/auto-pairs
 	url = git@github.com:jiangmiao/auto-pairs
 [submodule "pack/g-s-k/start/vim-toml"]
-	path = .config/vim/pack/g-s-k/start/vim-toml
+	path = .config/vim/pack/shared/start/vim-toml
 	url = git@github.com:cespare/vim-toml
 [submodule "pack/g-s-k/start/vim-closetag"]
-	path = .config/vim/pack/g-s-k/start/vim-closetag
+	path = .config/vim/pack/shared/start/vim-closetag
 	url = git@github.com:alvan/vim-closetag
 [submodule "pack/g-s-k/start/vim-jsx-pretty"]
-	path = .config/vim/pack/g-s-k/start/vim-jsx-pretty
+	path = .config/vim/pack/shared/start/vim-jsx-pretty
 	url = git@github.com:MaxMEllon/vim-jsx-pretty
 [submodule "pack/g-s-k/start/vim-signify"]
-	path = .config/vim/pack/g-s-k/start/vim-signify
+	path = .config/vim/pack/shared/start/vim-signify
 	url = git@github.com:mhinz/vim-signify
 [submodule "pack/g-s-k/start/vim-javascript"]
-	path = .config/vim/pack/g-s-k/start/vim-javascript
+	path = .config/vim/pack/shared/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript
 [submodule "pack/g-s-k/start/vim-airline-themes"]
-	path = .config/vim/pack/g-s-k/start/vim-airline-themes
+	path = .config/vim/pack/shared/start/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes
 [submodule "pack/g-s-k/start/vim-mustache-handlebars"]
-	path = .config/vim/pack/g-s-k/start/vim-mustache-handlebars
+	path = .config/vim/pack/shared/start/vim-mustache-handlebars
 	url = git@github.com:mustache/vim-mustache-handlebars
 [submodule ".local/share/nvim/pack/g-s-k/start/nvim-lsp"]
-	path = .local/share/nvim/site/pack/g-s-k/start/nvim-lsp
+	path = .config/nvim/pack/neo/start/nvim-lsp
 	url = git@github.com:neovim/nvim-lsp
 [submodule ".config/vim/pack/g-s-k/start/vim-fish"]
-	path = .config/vim/pack/g-s-k/start/vim-fish
+	path = .config/vim/pack/shared/start/vim-fish
 	url = git@github.com:georgewitteman/vim-fish.git
 [submodule ".config/vim/pack/g-s-k/start/ListToggle"]
-	path = .config/vim/pack/g-s-k/start/ListToggle
+	path = .config/vim/pack/shared/start/ListToggle
 	url = git@github.com:Valloric/ListToggle
