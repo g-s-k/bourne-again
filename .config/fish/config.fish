@@ -1,5 +1,6 @@
 # shared
 set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+set -x INPUTRC "$XDG_CONFIG_HOME/readline/inputrc"
 
 # package manager
 if not functions -q fisher

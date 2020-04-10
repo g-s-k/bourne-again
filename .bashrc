@@ -20,6 +20,9 @@ shopt -s checkwinsize
 # editor configuration
 export EDITOR=vim
 
+# readline
+export INPUTRC="${XDG_CONFIG_HOME:-"$HOME/.config"}/readline/inputrc"
+
 # add git completions on linux
 GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
 [ -f $GIT_COMPLETION_FILE ] && source $GIT_COMPLETION_FILE
