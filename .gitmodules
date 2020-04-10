@@ -55,3 +55,6 @@
 [submodule ".config/vim/pack/g-s-k/start/vim-fish"]
 	path = .config/vim/pack/g-s-k/start/vim-fish
 	url = git@github.com:georgewitteman/vim-fish.git
+[submodule ".config/vim/pack/g-s-k/start/ListToggle"]
+	path = .config/vim/pack/g-s-k/start/ListToggle
+	url = git@github.com:Valloric/ListToggle

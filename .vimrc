@@ -87,4 +87,4 @@ endif
 
 " https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
-noremap <Leader>c :cclose<CR>
+noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
