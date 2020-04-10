@@ -1,6 +1,18 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# xdg
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-"$HOME/.config"}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
+
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export RANDFILE="$XDG_CACHE_HOME/openssl/rnd"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
 # don't put lines starting with space in the history
 # also erase word-for-word duplicates
 HISTCONTROL=ignorespace:erasedups
@@ -11,7 +23,7 @@ shopt -s histappend
 # for history length see HISTSIZE and HISTFILESIZE in bash(1)
 export HISTSIZE=
 export HISTFILESIZE=
-export HISTFILE="${XDG_DATA_HOME:-"$HOME/.local/share"}/bash/history"
+export HISTFILE="$XDG_DATA_HOME/bash/history"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -19,9 +31,6 @@ shopt -s checkwinsize
 
 # editor configuration
 export EDITOR=vim
-
-# readline
-export INPUTRC="${XDG_CONFIG_HOME:-"$HOME/.config"}/readline/inputrc"
 
 # add git completions on linux
 GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
@@ -94,7 +103,7 @@ alias ll='la -l'
 
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-alias tmux="tmux -f ${XDG_CONFIG_HOME:-"$HOME/.config"}/tmux/tmux.conf"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # hacky fix to disable scroll wheel in alternate screen
 ps -p $(ps -p $$ -o ppid | grep -vF PPID) -o args | grep -q gnome-terminal

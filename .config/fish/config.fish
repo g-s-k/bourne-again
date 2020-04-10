@@ -1,6 +1,14 @@
 # shared
-set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
+set -q XDG_CACHE_HOME; or set -x XDG_CACHE_HOME "$HOME/.cache"
+set -q XDG_CONFIG_HOME; or set -x XDG_CONFIG_HOME "$HOME/.config"
+set -q XDG_DATA_HOME; or set -x XDG_DATA_HOME "$HOME/.local/share"
+
 set -x INPUTRC "$XDG_CONFIG_HOME/readline/inputrc"
+set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
+set -x NODE_REPL_HISTORY "$XDG_DATA_HOME/node_repl_history"
+set -x DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
+set -x RANDFILE "$XDG_CACHE_HOME/openssl/rnd"
+set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
 
 # package manager
 if not functions -q fisher
