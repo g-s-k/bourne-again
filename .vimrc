@@ -75,6 +75,7 @@ set omnifunc=ale#completion#OmniFunc
 nnoremap <Leader>r :ALERename<CR>
 nnoremap <Leader>f :ALEFindReferences<CR>
 nnoremap <Leader>d :ALEGoToDefinition<CR>
+nnoremap <Leader>h :ALEHover<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 nnoremap ]r :ALENextWrap<CR>
 
