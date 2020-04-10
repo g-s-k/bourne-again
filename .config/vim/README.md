@@ -36,11 +36,6 @@ the following npm packages (all can be installed with `:LspInstall` in neovim):
 
 These provide additional functionality beyond the language servers.
 
-- [`rustfmt`](https://github.com/rust-lang/rustfmt) for autoformatting Rust 
+- [`rustfmt`](https://github.com/rust-lang/rustfmt) for autoformatting Rust
 - `prettier-eslint` and `eslint` for JS and TS quality-of-life
 - [`golint`](https://github.com/golang/lint) for style linting in Go
-
-### Other important notes
-
-Install a font that supports powerline symbols and set it as your terminal
-default.

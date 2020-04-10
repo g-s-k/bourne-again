@@ -12,7 +12,6 @@ au VimEnter * highlight clear CursorLine
 au VimEnter * highlight CursorLineNr cterm=standout
 
 let g:airline_theme = 'night_owl'
-let g:airline_powerline_fonts = 1
 
 " behavior
 set clipboard^=unnamed,unnamedplus
