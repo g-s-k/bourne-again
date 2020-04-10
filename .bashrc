@@ -19,7 +19,6 @@ shopt -s checkwinsize
 
 # editor configuration
 export EDITOR=vim
-export VIMINIT='let $MYVIMRC="'"${XDG_CONFIG_HOME:-$HOME/.config}"'/vim/vimrc" | source $MYVIMRC'
 
 # add git completions on linux
 GIT_COMPLETION_FILE=/usr/share/bash-completion/completions/git
@@ -80,8 +79,6 @@ __make_prompt() {
 }
 
 # Alias definitions
-emc() { (emacsclient --alternate-editor="emacs" "$@" &> /dev/null &) }
-
 alias fullscreen='wmctrl -r :ACTIVE: -b toggle,fullscreen'
 
 if [[ "$(uname)" = "Darwin" ]]; then
@@ -91,16 +88,6 @@ else
 fi
 alias la='ls -A'
 alias ll='la -l'
-
-if [[ "$(uname)" = "Linux" ]]; then
-  alias xc='xclip -selection clipboard'
-fi
-
-alias dost='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
-
-alias kc=kubectl
-
-alias bla='beet ls -a'
 
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
