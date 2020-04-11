@@ -1,5 +1,32 @@
-.profile
+# repository itself
+.cfg/
+
+# xdg cache and site data
+.cache/
+.local/bin/
+.local/share/
 .bash_profile
 .bash_site
-.cfg
+.profile
 
+# fish
+.config/fish/completions/
+.config/fish/conf.d/
+.config/fish/functions/
+.config/fish/fish_variables
+.config/fisher/
+
+# other non-configuration things
+.ssh/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+
+# junk files
+.DS_Store
+.Trash/

@@ -9,14 +9,12 @@ article](https://www.atlassian.com/git/tutorials/dotfiles)
 ## usage
 
 ```shell
-  # clone this repo
-$ git clone --bare <url> $HOME/.cfg
-  # make an alias
-$ alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'
-  # populate the actual files
-$ cfg checkout && cfg submodule update --init
-  # only view explicitly tracked files when you run `cfg status`
-$ cfg config --local status.showUntrackedFiles no
+# clone this repo
+git clone --bare <url> $HOME/.cfg
+# make an alias
+alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'
+# populate the actual files
+cfg checkout && cfg submodule update --init
 ```
 
 note that the alias defined in the second step is identical to the ones in both
