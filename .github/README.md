@@ -48,12 +48,9 @@ conventional spot (`$HOME/.config/fish/functions/`)
 - use `.bash_profile` (sourced when Terminal.app is opened) for all
   site-specific configuration
 
+## Vim
 
-## items of note
-
-- Vim config is in [`.config/vim`](../.config/vim). more information on setup is
-  in a readme there.
-- Git config is located at [`.config/git/config`](../.config/git/config)
-- Tmux config is in [`.tmux.conf`](../.tmux.conf)
-- scripts i use often are in [`.local/bin`](../.local/bin). make sure you add it
-  to `$PATH` in order to use them.
+Vim config is in [`.config/vim`](../.config/vim). more information on setup is
+in a readme there. the most important note here is that you *must* recursively
+checkout the submodules in this repo (the second half of the last step above)
+in order to use the plugins.
