@@ -9,6 +9,7 @@ set -x NODE_REPL_HISTORY "$XDG_DATA_HOME/node/repl_history"
 set -x DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -x RANDFILE "$XDG_CACHE_HOME/openssl/rnd"
 set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
+set -x TODOTXT_CFG_FILE "$XDG_CONFIG_HOME/todo/todo.cfg"
 
 # package manager
 if not functions -q fisher
