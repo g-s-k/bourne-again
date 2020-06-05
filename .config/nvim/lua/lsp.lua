@@ -1,30 +1,68 @@
--- see https://github.com/neovim/nvim-lsp/issues/69#issuecomment-616816555
-do
-  local method = "textDocument/publishDiagnostics"
-  local default_callback = vim.lsp.callbacks[method]
-  vim.lsp.callbacks[method] = function(err, method, result, client_id)
-    default_callback(err, method, result, client_id)
-    if result and result.diagnostics then
-      for _, v in ipairs(result.diagnostics) do
-        v.bufnr = client_id
-        v.lnum = v.range.start.line + 1
-        v.col = v.range.start.character + 1
-        v.text = v.message
-      end
-      vim.lsp.util.set_loclist(result.diagnostics)
-    end
+local function get_diagnostics()
+  local params = vim.lsp.util.make_position_params()
+  local bufnr = vim.uri_to_bufnr(params.textDocument.uri)
+  local diag_list = vim.lsp.util.diagnostics_by_buf[bufnr]
+
+  return {
+    line = params.position.line,
+    uri = params.textDocument.uri,
+    list = diag_list,
+  }
+end
+
+local function jump_to(uri, range)
+  if range then
+    vim.lsp.util.jump_to_location({ uri = uri, range = range, })
   end
 end
 
+local function next_diagnostic()
+  local params = get_diagnostics()
+  if not params.list then return end
 
-local lsp = require'nvim_lsp'
+  local line = params.line
+  local first, current
 
-lsp.bashls.setup{}
-lsp.cssls.setup{}
-lsp.dockerls.setup{}
-lsp.gopls.setup{}
-lsp.html.setup{}
-lsp.jsonls.setup{}
-lsp.rust_analyzer.setup{}
-lsp.tsserver.setup{}
-lsp.vimls.setup{}
+  -- they are not sorted, must iterate over all
+  for _, d in ipairs(params.list) do
+    local d_line = d.range.start.line
+
+    if d_line > line and (not current or d_line < current.start.line) then
+        current = d.range
+    end
+
+    if not first or d_line < first.start.line then 
+      first = d.range
+    end
+  end
+
+  jump_to(params.uri, current or first)
+end
+
+local function previous_diagnostic()
+  local params = get_diagnostics()
+  if not params.list then return end
+
+  local line = params.line
+  local last, current
+
+  -- they are not sorted, must iterate over all
+  for _, d in ipairs(params.list) do
+    local d_line = d.range.start.line
+
+    if d_line < line and (not current or d_line > current.start.line) then
+        current = d.range
+    end
+
+    if not last or d_line > last.start.line then 
+      last = d.range
+    end
+  end
+
+  jump_to(params.uri, current or last)
+end
+
+return {
+  next_diagnostic = next_diagnostic,
+  previous_diagnostic = previous_diagnostic,
+}
