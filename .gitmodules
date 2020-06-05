@@ -61,3 +61,6 @@
 [submodule ".config/vim/pack/shared/start/typescript-vim"]
 	path = .config/vim/pack/shared/start/typescript-vim
 	url = git@github.com:leafgarland/typescript-vim
+[submodule ".config/vim/pack/shared/start/vim-reason-plus"]
+	path = .config/vim/pack/shared/start/vim-reason-plus
+	url = git@github.com:reasonml-editor/vim-reason-plus
