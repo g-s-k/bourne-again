@@ -1,3 +1,4 @@
+-- see https://github.com/neovim/nvim-lsp/issues/69#issuecomment-616816555
 do
   local method = "textDocument/publishDiagnostics"
   local default_callback = vim.lsp.callbacks[method]
