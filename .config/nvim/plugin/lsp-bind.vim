@@ -10,5 +10,4 @@ function BindNvimLspCommands()
   nnoremap <silent> [r :lua require'lsp'.previous_diagnostic()<CR>
 
   autocmd CursorHold <buffer> lua vim.lsp.util.show_line_diagnostics()
-  autocmd CursorMoved <buffer> lua vim.lsp.util.show_line_diagnostics()
 endfunction
