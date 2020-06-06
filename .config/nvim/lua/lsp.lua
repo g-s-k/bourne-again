@@ -1,7 +1,15 @@
 local function get_diagnostics()
   local params = vim.lsp.util.make_position_params()
   local bufnr = vim.uri_to_bufnr(params.textDocument.uri)
-  local diag_list = vim.lsp.util.diagnostics_by_buf[bufnr]
+  local diag_list
+
+  if vim.lsp.util.diagnostics_by_buf then
+    diag_list = vim.lsp.util.diagnostics_by_buf[bufnr]
+  end
+
+  if not diag_list then
+    print("No diagnostic messages found for this buffer.")
+  end
 
   return {
     line = params.position.line,
@@ -31,7 +39,7 @@ local function next_diagnostic()
         current = d.range
     end
 
-    if not first or d_line < first.start.line then 
+    if not first or d_line < first.start.line then
       first = d.range
     end
   end
@@ -54,7 +62,7 @@ local function previous_diagnostic()
         current = d.range
     end
 
-    if not last or d_line > last.start.line then 
+    if not last or d_line > last.start.line then
       last = d.range
     end
   end
