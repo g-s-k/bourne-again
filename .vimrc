@@ -65,6 +65,14 @@ let g:closetag_filetypes =
 \ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
 let g:closetag_xhtml_filetypes =
 \ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
+let g:closetag_regions = {
+\ 'typescript': 'jsxRegion,tsxRegion',
+\ 'typescript.tsx': 'jsxRegion,tsxRegion',
+\ 'typescriptreact': 'jsxRegion,tsxRegion',
+\ 'javascript': 'jsxRegion',
+\ 'javascript.jsx': 'jsxRegion',
+\ 'javascriptreact': 'jsxRegion',
+\}
 let g:closetag_emptyTags_caseSensitive = 1
 
 " linting
