@@ -64,3 +64,9 @@
 [submodule ".config/vim/pack/shared/start/vim-reason-plus"]
 	path = .config/vim/pack/shared/start/vim-reason-plus
 	url = git@github.com:reasonml-editor/vim-reason-plus
+[submodule ".config/vim/pack/shared/start/Coqtail"]
+	path = .config/vim/pack/coq/start/Coqtail
+	url = git@github.com:whonore/Coqtail
+[submodule ".config/vim/pack/shared/start/vimbufsync"]
+	path = .config/vim/pack/coq/start/vimbufsync
+	url = git@github.com:let-def/vimbufsync
