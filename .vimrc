@@ -2,7 +2,7 @@
 runtime! ftplugin/man.vim
 
 " appearance
-color slate
+color peachpuff
 set number
 set showcmd
 set ttyfast
@@ -11,7 +11,7 @@ set cursorline
 au VimEnter * highlight clear CursorLine
 au VimEnter * highlight CursorLineNr cterm=standout
 
-let g:airline_theme = 'night_owl'
+let g:airline_theme = 'minimalist'
 
 " behavior
 set clipboard^=unnamed,unnamedplus
@@ -57,6 +57,8 @@ noremap <Up> :echom "use K"<CR>
 noremap <Down> :echom "use J"<CR>
 noremap <Left> :echom "use H"<CR>
 noremap <Right> :echom "use L"<CR>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
