@@ -98,3 +98,8 @@ endif
 " https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
 noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
+
+" fzf
+if isdirectory($HOME . '/.local/share/fzf')
+  set rtp+=$HOME/.local/share/fzf
+endif
