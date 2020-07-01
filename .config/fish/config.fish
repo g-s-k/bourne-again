@@ -52,4 +52,4 @@ if test -s "$HOME/.nvm/nvm.sh"
 end
 
 # fw
-test -x (command -v fw) && fw print-fish-setup | source
+command -v fw && fw print-fish-setup | source
