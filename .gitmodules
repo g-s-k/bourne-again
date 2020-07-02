@@ -73,3 +73,6 @@
 [submodule ".config/vim/pack/shared/start/vim-pony"]
 	path = .config/vim/pack/shared/start/vim-pony
 	url = git@github.com:jakwings/vim-pony
+[submodule ".config/nvim/pack/neo/start/firenvim"]
+	path = .config/nvim/pack/neo/start/firenvim
+	url = git@github.com:glacambre/firenvim
