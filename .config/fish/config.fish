@@ -25,19 +25,17 @@ bind -M insert \cp accept-autosuggestion
 alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 if type -q wmctrl
-  alias fullscreen 'wmctrl -r :ACTIVE: -b toggle,fullscreen'
+    alias fullscreen 'wmctrl -r :ACTIVE: -b toggle,fullscreen'
 end
 
-function ee
-  emacsclient $argv &
-end
+alias ee 'emacsclient -n'
 
 alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 if test (uname) = "Darwin"
-  alias xc pbcopy
+    alias xc pbcopy
 else
-  alias xc 'xclip -selection clipboard'
+    alias xc 'xclip -selection clipboard'
 end
 
 alias dost 'docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}"'
@@ -47,12 +45,12 @@ alias bla 'beet ls -a'
 
 # hacky fix for tmux in gnome-terminal
 if ps -p (ps -p $fish_pid -o ppid | grep -vF PPID | string trim) -o args | grep -q gnome-terminal
-  printf '\e[?1007l'
+    printf '\e[?1007l'
 end
 
 # nvm
 if test -s "$HOME/.nvm/nvm.sh"
-  bass source "$HOME/.nvm/nvm.sh"
+    bass source "$HOME/.nvm/nvm.sh"
 end
 
 # fw
