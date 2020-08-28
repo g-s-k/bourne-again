@@ -49,9 +49,7 @@ if ps -p (ps -p $fish_pid -o ppid | grep -vF PPID | string trim) -o args | grep 
 end
 
 # nvm
-if test -s "$HOME/.nvm/nvm.sh"
-    bass source "$HOME/.nvm/nvm.sh"
-end
+functions -q nvm; and nvm use default
 
 # fw
 command -q fw && fw print-fish-setup -f | source
