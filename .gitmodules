@@ -50,7 +50,7 @@
 	path = .config/vim/pack/shared/start/vim-mustache-handlebars
 	url = git@github.com:mustache/vim-mustache-handlebars
 [submodule ".local/share/nvim/pack/g-s-k/start/nvim-lsp"]
-	path = .config/nvim/pack/neo/start/nvim-lsp
+	path = .config/nvim/pack/neo/start/nvim-lspconfig
 	url = git@github.com:neovim/nvim-lsp
 [submodule ".config/vim/pack/g-s-k/start/vim-fish"]
 	path = .config/vim/pack/shared/start/vim-fish
@@ -76,3 +76,6 @@
 [submodule ".config/nvim/pack/neo/start/firenvim"]
 	path = .config/nvim/pack/neo/start/firenvim
 	url = git@github.com:glacambre/firenvim
+[submodule ".config/vim/pack/shared/start/vim-elixir"]
+	path = .config/vim/pack/shared/start/vim-elixir
+	url = git@github.com:elixir-editors/vim-elixir
