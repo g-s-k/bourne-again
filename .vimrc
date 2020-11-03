@@ -2,7 +2,7 @@
 runtime! ftplugin/man.vim
 
 " appearance
-color peachpuff
+color slate
 set number
 set showcmd
 set ttyfast
