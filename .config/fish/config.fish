@@ -48,8 +48,5 @@ if ps -p (ps -p $fish_pid -o ppid | grep -vF PPID | string trim) -o args | grep 
     printf '\e[?1007l'
 end
 
-# nvm
-functions -q nvm; and nvm use default
-
 # fw
 command -q fw && fw print-fish-setup -f | source
