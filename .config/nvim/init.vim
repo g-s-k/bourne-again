@@ -5,7 +5,7 @@ packadd nvim-lspconfig
 au VimEnter * highlight SpellBad ctermbg=1
 
 lua <<EOF
-  local lsp = require'nvim_lsp'
+  local lsp = require'lspconfig'
 
   lsp.bashls.setup{}
   lsp.cssls.setup{}
