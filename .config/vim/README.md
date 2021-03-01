@@ -22,11 +22,11 @@ Install the `typescript` package from npm for JS/TS LSP integration from ALE
 
 ##### neovim only
 
-the following npm packages (all can be installed with `:LspInstall` in neovim):
+the following npm packages:
 
 - `bash-language-server` for shell scripts
 - `dockerfile-language-server-nodejs` for Dockerfiles
-- `html-languageserver` for HTML
+- `vscode-html-languageserver-bin` for HTML
 - `typescript-language-server` for neovim linting in JS and TS
 - `vim-language-server` for vimscript
 - `vscode-css-languageserver-bin` for CSS/SASS/LESS
