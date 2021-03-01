@@ -1,7 +1,5 @@
 source ~/.vimrc
 
-packadd nvim-lspconfig
-
 au VimEnter * highlight SpellBad ctermbg=1
 
 lua <<EOF

@@ -14,7 +14,7 @@ git clone --bare <url> $HOME/.cfg
 # make an alias
 alias cfg='git --git-dir=$HOME/.cfg --work-tree=$HOME'
 # populate the actual files
-cfg checkout && cfg submodule update --init
+cfg checkout
 ```
 
 note that the alias defined in the second step is identical to the ones in both
@@ -51,6 +51,4 @@ conventional spot (`$HOME/.config/fish/functions/`)
 ## Vim
 
 Vim config is in [`.config/vim`](../.config/vim). more information on setup is
-in a readme there. the most important note here is that you *must* recursively
-checkout the submodules in this repo (the second half of the last step above)
-in order to use the plugins.
+in a readme there.

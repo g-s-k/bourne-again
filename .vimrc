@@ -18,6 +18,7 @@ set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
 let mapleader = " "
+set shortmess+=c
 
 " splits
 set splitright
@@ -46,6 +47,54 @@ let g:netrw_liststyle=3
 if !has('nvim')
   source $HOME/.config/vim/xdg.vim
 endif
+
+" external plugins
+if has('nvim')
+  let plug_file = $XDG_CONFIG_HOME . '/nvim/autoload/plug.vim'
+else
+  let plug_file = $XDG_CONFIG_HOME . '/vim/autoload/plug.vim'
+end
+
+if empty(glob(plug_file))
+  silent execute '!curl -fLo ' . plug_file . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin($XDG_DATA_HOME . '/plugged')
+
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'Valloric/ListToggle'
+Plug 'alvan/vim-closetag'
+Plug 'cespare/vim-toml'
+Plug 'elixir-editors/vim-elixir'
+Plug 'georgewitteman/vim-fish'
+Plug 'jakwings/vim-pony'
+Plug 'jiangmiao/auto-pairs'
+Plug 'leafgarland/typescript-vim'
+Plug 'mhinz/vim-signify'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-jdaddy'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+if has('nvim')
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'nvim-lua/lsp_extensions.nvim'
+else
+  Plug 'dense-analysis/ale'
+  Plug 'whonore/Coqtail'
+  Plug 'let-def/vimbufsync'
+end
+
+call plug#end()
 
 " vcs gutter indicators
 set signcolumn=yes
