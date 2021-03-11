@@ -70,6 +70,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'georgewitteman/vim-fish'
 Plug 'jakwings/vim-pony'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'leafgarland/typescript-vim'
 Plug 'mhinz/vim-signify'
 Plug 'mustache/vim-mustache-handlebars'
