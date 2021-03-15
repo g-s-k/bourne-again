@@ -1,7 +1,7 @@
 function BindNvimLspCommands()
-  setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  setlocal keywordprg=":lua vim.lsp.buf.incoming_calls()"
+  set omnifunc=v:lua.vim.lsp.omnifunc
 
+  nnoremap K <cmd>lua vim.lsp.buf.hover()<CR>
   nnoremap <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
   nnoremap <Leader>r <cmd>lua vim.lsp.buf.rename()<CR>
   nnoremap <Leader>f <cmd>lua vim.lsp.buf.references()<CR> :copen<CR>
