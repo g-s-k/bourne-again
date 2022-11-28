@@ -1,0 +1,13 @@
+set show-all-if-ambiguous on
+set editing-mode vi
+
+# editing mode display
+# see https://stackoverflow.com/a/42107711 for more details
+set show-mode-in-prompt on
+set vi-ins-mode-string "\1\e[0;34m\2[I]\1\e[0m\2 "
+set vi-cmd-mode-string "\1\e[1;33m\2[N]\1\e[0m\2 "
+
+set keymap vi-insert
+"\C-l": clear-screen
+"\e[A": history-search-backward
+"\e[B": history-search-forward

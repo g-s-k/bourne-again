@@ -1,0 +1,42 @@
+# repository itself
+.cfg/
+
+# xdg cache and site data
+.cache/
+.local/
+.bash_profile
+.bash_site
+.profile
+
+# homebrew packages
+Brewfile.lock.json
+
+# fish
+.config/fish/completions/
+.config/fish/conf.d/
+.config/fish/functions/
+.config/fish/fish_variables
+.config/fisher/
+
+# git
+.config/git/pii
+
+#[n]vim
+.config/nvim/autoload/plug.vim
+.config/vim/autoload/plug.vim
+
+# other non-configuration things
+.ssh/
+Applications/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+
+# junk files
+.DS_Store
+.Trash/

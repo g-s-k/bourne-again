@@ -1,0 +1,32 @@
+[include]
+	path = pii
+
+[core]
+  pager = delta
+
+[init]
+	defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
+[alias]
+	unstage = reset HEAD --
+	current = symbolic-ref --short HEAD
+	delete-last = branch -d @{-1}
+	is-repo = ! git rev-parse --is-inside-work-tree 1>/dev/null 2>&1
+	conflicts = diff --name-only --diff-filter=U
+
+	# show history
+	last = log -1 HEAD
+	graph = log --oneline --graph
+
+	# check for local changes
+	untracked = ls-files --other --exclude-standard
+	unstaged-tracked = diff-files --no-ext-diff --quiet
+	uncommitted-tracked = diff-index --no-ext-diff --quiet --cached HEAD --
+	dirty = ! git unstaged-tracked && git uncommitted-tracked && [ -z "$(git untracked)" ]
+
+	# branch choreography
+	kill = ! "f() { git dirty && git checkout ${1:-master} && git delete-last || git status; }; f"
+	pick-this = ! "f() { CURRENT=$(git current); git checkout $1; shift; git cherry-pick $@ $CURRENT; }; f"
