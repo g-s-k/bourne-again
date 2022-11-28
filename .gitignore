@@ -4,9 +4,6 @@
 # xdg cache and site data
 .cache/
 .local/
-.bash_profile
-.bash_site
-.profile
 
 # homebrew packages
 Brewfile.lock.json
@@ -21,12 +18,35 @@ Brewfile.lock.json
 # git
 .config/git/pii
 
-#[n]vim
+# [n]vim
 .config/nvim/autoload/plug.vim
 .config/vim/autoload/plug.vim
 
+# rust
+.cargo/
+.rustup/
+
+# various configs
+.bash_profile
+.bash_site
+.config/iterm2/
+.fzf.bash
+.fzf.zsh
+.profile
+.zshenv
+.zshrc
+
 # other non-configuration things
+.CFUserTextEncoding
+.bash_history
+.bash_sessions/
+.cups/
+.gnupg/
+.julia/
+.lesshst
 .ssh/
+.zsh_history
+.zsh_sessions/
 Applications/
 Desktop/
 Documents/
