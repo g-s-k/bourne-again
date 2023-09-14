@@ -33,6 +33,7 @@ Brewfile.lock.json
 .fzf.bash
 .fzf.zsh
 .profile
+.zprofile
 .zshenv
 .zshrc
 

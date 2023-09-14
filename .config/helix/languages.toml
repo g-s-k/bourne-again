@@ -1,0 +1,4 @@
+[[language]]
+name = "rust"
+config.rust-analyzer.check.command = "clippy"
+config.rust-analyzer.check.extraArgs = ["--all-targets"]
