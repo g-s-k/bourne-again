@@ -1,4 +1,3 @@
 [[language]]
 name = "rust"
-config.rust-analyzer.check.command = "clippy"
-config.rust-analyzer.check.extraArgs = ["--all-targets"]
+config.rust-analyzer = { check.command = "clippy", hover.memoryLayout.niches = true }

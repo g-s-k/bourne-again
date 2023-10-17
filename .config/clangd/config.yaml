@@ -1,0 +1,4 @@
+CompileFlags:
+  Add: [-Wall, -Wextra, -Weverything]
+Diagnostics:
+  Suppress: [declaration-after-statement]
