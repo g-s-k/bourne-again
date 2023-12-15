@@ -30,3 +30,4 @@
 	# branch choreography
 	kill = ! "f() { git dirty && git checkout ${1:-master} && git delete-last || git status; }; f"
 	pick-this = ! "f() { CURRENT=$(git current); git checkout $1; shift; git cherry-pick $@ $CURRENT; }; f"
+	detach = ! "f() { git dirty && git checkout --detach && git delete-last || git status; }; f"

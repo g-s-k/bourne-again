@@ -1,4 +1,4 @@
 CompileFlags:
-  Add: [-Wall, -Wextra, -Weverything]
+  Add: [-Wall, -Wextra, -Weverything, -Wpedantic]
 Diagnostics:
   Suppress: [declaration-after-statement]
