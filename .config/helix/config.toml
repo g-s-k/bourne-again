@@ -1,1 +1,10 @@
-theme = 'ayu_dark'
+theme = 'ayu_evolve'
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+
+[editor.soft-wrap]
+enable = true

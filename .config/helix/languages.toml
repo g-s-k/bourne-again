@@ -1,3 +1,6 @@
+[language-server.rust-analyzer]
+check.command = "clippy"
+hover.memoryLayout.niches = true
+
 [[language]]
 name = "rust"
-config.rust-analyzer = { check.command = "clippy", hover.memoryLayout.niches = true }
