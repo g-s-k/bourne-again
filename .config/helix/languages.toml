@@ -4,3 +4,7 @@ hover.memoryLayout.niches = true
 
 [[language]]
 name = "rust"
+
+[[language]]
+name = "c"
+auto-format = true
