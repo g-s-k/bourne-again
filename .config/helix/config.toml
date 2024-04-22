@@ -1,5 +1,8 @@
 theme = 'ayu_evolve'
 
+[editor]
+true-color = true
+
 [editor.file-picker]
 hidden = false
 
