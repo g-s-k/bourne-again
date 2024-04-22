@@ -10,7 +10,7 @@ set -x DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 set -x RANDFILE "$XDG_CACHE_HOME/openssl/rnd"
 set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set -x TODOTXT_CFG_FILE "$XDG_CONFIG_HOME/todo/todo.cfg"
-set -x FZF_TMUX_OPTS "-p"
+set -x FZF_TMUX_OPTS -p
 
 # package manager
 if not functions -q fisher
@@ -27,17 +27,8 @@ alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
-if test (uname) = "Darwin"
-    alias notes 'open /System/Applications/Notes.app'
-    alias xc pbcopy
-    alias xp pbpaste
-else
-    alias xc 'xclip -selection clipboard'
-end
-
-alias bla 'beet ls -a'
+# fzf
+command -q fzf && fzf --fish | source
 
 # fw
 command -q fw && fw print-fish-setup -f | source
-
-alias addnew "beet im (find $downloads_directory -mindepth 1 -maxdepth 1 -type d -mtime 0 2>/dev/null)"
