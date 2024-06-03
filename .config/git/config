@@ -11,11 +11,11 @@
   diffFilter = delta --color-only
 
 [alias]
-	unstage = reset HEAD --
 	current = symbolic-ref --short HEAD
 	delete-last = branch -d @{-1}
 	is-repo = ! git rev-parse --is-inside-work-tree 1>/dev/null 2>&1
 	conflicts = diff --name-only --diff-filter=U
+	sui = submodule update --init --recursive
 
 	# show history
 	last = log -1 HEAD
