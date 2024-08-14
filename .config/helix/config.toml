@@ -2,12 +2,11 @@ theme = 'ayu_evolve'
 
 [editor]
 true-color = true
+file-picker.hidden = false
+indent-guides.render = true
+soft-wrap.enable = true
 
-[editor.file-picker]
-hidden = false
+bufferline = "multiple"
+mouse = false
+color-modes = true
 
-[editor.indent-guides]
-render = true
-
-[editor.soft-wrap]
-enable = true
