@@ -7,6 +7,5 @@ indent-guides.render = true
 soft-wrap.enable = true
 
 bufferline = "multiple"
-mouse = false
 color-modes = true
 
