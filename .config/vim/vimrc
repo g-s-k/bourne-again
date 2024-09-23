@@ -1,29 +1,20 @@
-" builtin plugins
-runtime! ftplugin/man.vim
-
 " appearance
 color slate
-au VimEnter * highlight Pmenu ctermbg=141
 set number
 set showcmd
 set ttyfast
 
 set cursorline
 set cursorlineopt=number
-
-let g:airline_theme = 'minimalist'
+set signcolumn=yes
 
 " behavior
-set clipboard^=unnamed,unnamedplus
 set hidden
 set scrolloff=10
-let mapleader = " "
+let mapleader=' '
 set shortmess+=c
-set completeopt-=preview
-
-" splits
-set splitright
-autocmd VimResized * :wincmd =
+syntax enable
+filetype indent plugin on
 
 " search
 set ignorecase
@@ -41,70 +32,45 @@ let g:netrw_fastbrowse = 0
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 
-" external plugins
-if has('nvim')
-  let plug_file = $XDG_DATA_HOME . '/nvim/site/autoload/plug.vim'
-else
-  let plug_file = $XDG_CONFIG_HOME . '/vim/autoload/plug.vim'
-end
+" status line
+set laststatus=2
 
-if empty(glob(plug_file))
-  silent execute '!curl -fLo ' . plug_file . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+function! StatuslineGit()
+	let l:branchname = system('git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d "\n"')
+	return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
 
-call plug#begin($XDG_DATA_HOME . '/plugged')
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()} 
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\ 
+set statusline+=%= 
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c\ 
 
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'Valloric/ListToggle'
-Plug 'alvan/vim-closetag'
-Plug 'cespare/vim-toml'
-Plug 'elixir-editors/vim-elixir'
-Plug 'georgewitteman/vim-fish'
-Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'leafgarland/typescript-vim'
-Plug 'mhinz/vim-signify'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'
-Plug 'reasonml-editor/vim-reason-plus'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-jdaddy'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'christoomey/vim-tmux-navigator'
+" system clipboard
+noremap <silent> <Leader>y "+yy
+noremap <silent> <Leader>p "+p
+vnoremap <silent> <Leader>y "+y
 
-if has('nvim')
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/lsp_extensions.nvim'
-end
+" navigation
+noremap <silent> <Leader>t :tabnew<CR>
+noremap <silent> [t :tabprev<CR>
+noremap <silent> ]t :tabnext<CR>
 
-call plug#end()
+noremap <silent> [b :bprev<CR>
+noremap <silent> ]b :bnext<CR>
 
-" vcs gutter indicators
-set signcolumn=yes
-au VimEnter * highlight clear SignColumn
-set updatetime=100
-
-" html tag autoclose
-let g:closetag_filetypes =
-\ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
-let g:closetag_xhtml_filetypes =
-\ 'html,xhtml,phtml,javascript,javascriptreact,javascript.jsx,typescript,typescriptreact,typescript.tsx'
-let g:closetag_regions = {
-\ 'typescript': 'jsxRegion,tsxRegion',
-\ 'typescript.tsx': 'jsxRegion,tsxRegion',
-\ 'typescriptreact': 'jsxRegion,tsxRegion',
-\ 'javascript': 'jsxRegion',
-\ 'javascript.jsx': 'jsxRegion',
-\ 'javascriptreact': 'jsxRegion',
-\}
-let g:closetag_emptyTags_caseSensitive = 1
+noremap <silent> <Leader>h <C-w>h
+noremap <silent> <Leader>j <C-w>j
+noremap <silent> <Leader>k <C-w>k
+noremap <silent> <Leader>l <C-w>l
 
 " set ripgrep as grepprg
 if executable("rg")
@@ -115,3 +81,53 @@ endif
 " https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
 noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
+
+" fzf
+if isdirectory('/opt/homebrew/opt/fzf')
+	set rtp+=/opt/homebrew/opt/fzf
+
+	command! FZFBuffers call fzf#run(fzf#wrap({
+				\	'source': map(getbufinfo({'buflisted': 1}), 'v:val.name'),
+				\	'sink': 'b',
+				\ }))
+
+	noremap <silent> <Leader>f :FZF<CR>
+	noremap <silent> <Leader>b :FZFBuffers<CR>
+endif
+
+let s:lsp_plugin_dir = environ()['XDG_CONFIG_HOME'] . '/vim/pack/downloads/opt/lsp'
+if isdirectory(s:lsp_plugin_dir)
+	packadd lsp
+
+  call LspOptionsSet(#{
+        \ showDiagWithVirtualText: v:true,
+        \ })
+
+	call LspAddServer([#{
+        \	name: 'clangd',
+        \	filetype: ['c', 'cpp'],
+        \	path: '/usr/bin/clangd',
+        \	args: ['--background-index'],
+        \ }])
+
+	call LspAddServer([#{
+        \	name: 'rust',
+        \	filetype: ['rust'],
+        \	path: '/Users/gsk/.cargo/bin/rust-analyzer',
+        \	args: [],
+        \ initializationOptions: {'check': {'command': 'clippy'}},
+        \	syncInit: v:true,
+        \ }])
+
+	noremap <silent> <Leader>a :LspCodeAction<CR>
+	noremap <silent> <Leader>k :LspHover<CR>
+	noremap <silent> <Leader>d :LspDiag show<CR>
+	noremap <silent> <Leader>F :LspFormat<CR>
+	noremap <silent> [d :LspDiag prevWrap<CR>
+	noremap <silent> ]d :LspDiag nextWrap<CR>
+	noremap <silent> gd :LspGotoDefinition<CR>
+	noremap <silent> gi :LspGotoImpl<CR>
+	noremap <silent> gr :LspShowReferences<CR>
+else
+	echoerr 'LSP not installed. Install yegappan/lsp to ' . s:lsp_plugin_dir
+endif

@@ -34,5 +34,4 @@ conventional spot (`$HOME/.config/fish/functions/`)
 
 ## Vim
 
-Vim config is in [`.config/vim`](../.config/vim). more information on setup is
-in a readme there.
+Vim config is in [`.config/vim`](../.config/vim).
