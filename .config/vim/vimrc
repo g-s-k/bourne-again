@@ -4,6 +4,8 @@ set number
 set showcmd
 set ttyfast
 
+set showtabline=2
+
 set cursorline
 set cursorlineopt=number
 set signcolumn=yes
@@ -60,7 +62,10 @@ noremap <silent> <Leader>p "+p
 vnoremap <silent> <Leader>y "+y
 
 " navigation
+noremap <silent> <Leader>e :25Lex<CR>
+
 noremap <silent> <Leader>t :tabnew<CR>
+noremap <silent> <Leader>x :tabclose<CR>
 noremap <silent> [t :tabprev<CR>
 noremap <silent> ]t :tabnext<CR>
 
