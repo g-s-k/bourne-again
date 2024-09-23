@@ -26,8 +26,5 @@ alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
-# fzf
-command -q fzf && fzf --fish | source
-
 # fw
 command -q fw && fw print-fish-setup -f | source
