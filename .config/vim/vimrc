@@ -61,7 +61,6 @@ Plug 'alvan/vim-closetag'
 Plug 'cespare/vim-toml'
 Plug 'elixir-editors/vim-elixir'
 Plug 'georgewitteman/vim-fish'
-Plug 'jakwings/vim-pony'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'leafgarland/typescript-vim'
@@ -116,8 +115,3 @@ endif
 " https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
 noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
-
-" fzf
-if isdirectory($HOME . '/.local/share/fzf')
-  set rtp+=$HOME/.local/share/fzf
-endif
