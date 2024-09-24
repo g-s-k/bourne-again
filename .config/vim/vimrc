@@ -88,6 +88,19 @@ if executable("rg")
   set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
+function! DoGlobalSearch()
+  call inputsave()
+  let l:search_term = shellescape(input('Global search: ', '', 'history'))
+  call inputrestore()
+  if empty(l:search_term)
+    return
+  endif
+  silent execute "grep! " . l:search_term
+  copen
+endfunction
+
+noremap <silent> <Leader>/ :call DoGlobalSearch()<CR>
+
 " https://learnvimscriptthehardway.stevelosh.com/chapters/32.html
 noremap <Leader>g :silent execute "grep! " . shellescape(expand("<cword>"))<CR>:copen<CR>
 noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:copen<CR>
