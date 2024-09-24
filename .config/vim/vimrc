@@ -82,6 +82,22 @@ noremap <silent> <Leader>j <C-w>j
 noremap <silent> <Leader>k <C-w>k
 noremap <silent> <Leader>l <C-w>l
 
+noremap <silent> <Leader>q :cclose<CR>
+noremap <silent> [q :cprev<CR>
+noremap <silent> ]q :cnext<CR>
+
+noremap <silent> <Leader>l :lclose<CR>
+noremap <silent> [l :lprev<CR>
+noremap <silent> ]l :lnext<CR>
+
+" surround (basic)
+vnoremap s( c(<C-r>")<ESC>
+vnoremap s) c( <C-r>" )<ESC>
+vnoremap s[ c[<C-r>"]<ESC>
+vnoremap s] c[ <C-r>" ]<ESC>
+vnoremap s{ c{<C-r>"}<ESC>
+vnoremap s} c{ <C-r>" }<ESC>
+
 " set ripgrep as grepprg
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading
