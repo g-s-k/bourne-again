@@ -1,6 +1,3 @@
-source ~/.vimrc
-
-au VimEnter * highlight SpellBad ctermbg=1
 
 lua <<EOF
   local opts = { noremap=true, silent=true }

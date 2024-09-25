@@ -1,1 +1,0 @@
-../../vim/ftplugin/java.vim

@@ -1,1 +1,0 @@
-../pack/shared/start/typescript-vim/syntax/typescript.vim

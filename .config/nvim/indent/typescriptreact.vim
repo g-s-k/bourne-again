@@ -1,1 +1,0 @@
-../pack/shared/start/typescript-vim/indent/typescript.vim
