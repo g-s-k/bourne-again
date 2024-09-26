@@ -31,20 +31,20 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- system clipboard
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>y', '"+yy')
-vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('v', '<leader>y', '"+y', { silent = true })
+vim.keymap.set('n', '<leader>y', '"+yy', { silent = true })
+vim.keymap.set('n', '<leader>p', '"+p', { silent = true })
 
 -- navigation
-vim.keymap.set('n', '<leader>e', ':25Lex<CR>')
+vim.keymap.set('n', '<leader>e', ':25Lex<CR>', { silent = true })
 
-vim.keymap.set('n', '<leader>t', ':tabnew<CR>')
-vim.keymap.set('n', '<leader>x', ':tabclose<CR>')
-vim.keymap.set('n', '[t', ':tabprev<CR>')
-vim.keymap.set('n', ']t', ':tabnext<CR>')
+vim.keymap.set('n', '<leader>t', ':tabnew<CR>', { silent = true })
+vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { silent = true })
+vim.keymap.set('n', '[t', ':tabprev<CR>', { silent = true })
+vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true })
 
-vim.keymap.set('n', '[b', ':bprev<CR>')
-vim.keymap.set('n', ']b', ':bnext<CR>')
+vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
+vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>q', function()
   local tabnr = vim.fn.tabpagenr()
@@ -56,24 +56,24 @@ vim.keymap.set('n', '<leader>q', function()
   else
     vim.cmd.copen()
   end
-end)
-vim.keymap.set('n', '[q', ':cprev<CR>')
-vim.keymap.set('n', ']q', ':cnext<CR>')
+end, { silent = true })
+vim.keymap.set('n', '[q', ':cprev<CR>', { silent = true })
+vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>l', function()
   -- TODO
   vim.cmd.lclose()
-end)
-vim.keymap.set('n', '[l', ':lprev<CR>')
-vim.keymap.set('n', ']l', ':lnext<CR>')
+end, { silent = true })
+vim.keymap.set('n', '[l', ':lprev<CR>', { silent = true })
+vim.keymap.set('n', ']l', ':lnext<CR>', { silent = true })
 
 -- surround (basic)
-vim.keymap.set('v', 's(', 'c(<C-r>")<ESC>')
-vim.keymap.set('v', 's)', 'c( <C-r>" )<ESC>')
-vim.keymap.set('v', 's[', 'c[<C-r>"]<ESC>')
-vim.keymap.set('v', 's]', 'c[ <C-r>" ]<ESC>')
-vim.keymap.set('v', 's{', 'c{<C-r>"}<ESC>')
-vim.keymap.set('v', 's}', 'c{ <C-r>" }<ESC>')
+vim.keymap.set('v', 's(', 'c(<C-r>")<ESC>', { silent = true })
+vim.keymap.set('v', 's)', 'c( <C-r>" )<ESC>', { silent = true })
+vim.keymap.set('v', 's[', 'c[<C-r>"]<ESC>', { silent = true })
+vim.keymap.set('v', 's]', 'c[ <C-r>" ]<ESC>', { silent = true })
+vim.keymap.set('v', 's{', 'c{<C-r>"}<ESC>', { silent = true })
+vim.keymap.set('v', 's}', 'c{ <C-r>" }<ESC>', { silent = true })
 
 -- tmux
 local try_navigate_panes = function(direction)
@@ -95,23 +95,27 @@ local try_navigate_panes = function(direction)
   end
 end
 
-vim.keymap.set('n', '<C-h>', function() try_navigate_panes('h') end)
-vim.keymap.set('n', '<C-j>', function() try_navigate_panes('j') end)
-vim.keymap.set('n', '<C-k>', function() try_navigate_panes('k') end)
-vim.keymap.set('n', '<C-l>', function() try_navigate_panes('l') end)
+vim.keymap.set('n', '<C-h>', function() try_navigate_panes('h') end, { silent = true })
+vim.keymap.set('n', '<C-j>', function() try_navigate_panes('j') end, { silent = true })
+vim.keymap.set('n', '<C-k>', function() try_navigate_panes('k') end, { silent = true })
+vim.keymap.set('n', '<C-l>', function() try_navigate_panes('l') end, { silent = true })
 
 
 -- grep
 vim.keymap.set('n', '<leader>g', function()
 	vim.cmd.grep(vim.fn.expand('<cword>'))
 	vim.cmd.copen()
-end)
+end, { silent = true })
 
 -- fzf
 if vim.fn.isdirectory('/opt/homebrew/opt/fzf') then
 	vim.opt.rtp:append { '/opt/homebrew/opt/fzf' }
 
-	vim.keymap.set('n', '<leader>f', ':FZF<CR>')
+	if vim.env.TMUX then
+		vim.g.fzf_layout = { tmux = '90%,60%' }
+	end
+
+	vim.keymap.set('n', '<leader>f', ':FZF<CR>', { silent = true })
 	vim.keymap.set('n', '<leader>b', function()
 		local source = {}
 		for k,v in pairs(vim.fn.getbufinfo({buflisted = 1})) do
@@ -125,34 +129,34 @@ if vim.fn.isdirectory('/opt/homebrew/opt/fzf') then
 				sink = 'b',
 			})
 		)
-	end)
+	end, { silent = true })
 end
 
 -- lsp
 
-vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist)
+vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { silent = true })
+vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client.supports_method('textDocument/codeAction') then
-			vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action)
+			vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { silent = true })
 		end
 		if client.supports_method('textDocument/definition') then
-			vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true })
 		end
 		if client.supports_method('textDocument/formatting') then
-			vim.keymap.set('n', '<leader>F', vim.lsp.buf.format)
+			vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, { silent = true })
 		end
 		if client.supports_method('textDocument/implementation*') then
-			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true })
 		end
 		if client.supports_method('textDocument/references') then
-			vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+			vim.keymap.set('n', 'gr', vim.lsp.buf.references, { silent = true })
 		end
 		if client.supports_method('textDocument/rename') then
-			vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
+			vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { silent = true })
 		end
 	end,
 })
