@@ -19,6 +19,7 @@ Brewfile.lock.json
 .config/git/pii
 
 # [n]vim
+.viminfo
 .config/nvim/autoload/plug.vim
 .config/vim/autoload/plug.vim
 
@@ -29,7 +30,11 @@ Brewfile.lock.json
 # various configs
 .bash_profile
 .bash_site
+.config/alacritty/
+.config/containers/
+.config/htop/htoprc
 .config/iterm2/
+.config/spek/
 .fzf.bash
 .fzf.zsh
 .profile
@@ -46,6 +51,8 @@ Brewfile.lock.json
 .julia/
 .lesshst
 .ssh/
+.swiftpm/
+.terminfo/
 .zsh_history
 .zsh_sessions/
 Applications/
