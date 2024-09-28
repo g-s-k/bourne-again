@@ -1,16 +1,38 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
+tap "homebrew/services"
 
-brew "bat"
-brew "clang-format"
+# shell and text editing
+cask "alacritty"
 brew "fish"
+brew "bat"
 brew "fzf"
-brew "git-delta"
 brew "helix"
-brew "julia"
 brew "neovim"
 brew "ripgrep"
+brew "tealdeer"
+brew "tmux"
+brew "tokei"
+brew "tree"
+
+# utilities
+brew "curl"
+brew "ffmpeg"
+brew "htop"
+brew "imagemagick"
+
+# development
+brew "clang-format"
+brew "cmake"
+brew "git-delta"
+brew "julia"
+brew "just"
+brew "ninja"
+brew "zig"
+
+# apps
+cask "audacity"
 cask "blackhole-2ch"
-cask "chromium"
-cask "iterm2"
+cask "discord"
+cask "gimp"
+cask "inkscape"
+cask "slack"
