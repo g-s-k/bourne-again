@@ -26,6 +26,8 @@ alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
+abbr --add rgd --position command --set-cursor 'rg --json % | delta'
+
 # fw
 command -q fw && fw print-fish-setup -f | source
 

@@ -10,6 +10,17 @@
 [interactive]
   diffFilter = delta --color-only
 
+[delta]
+	line-numbers = true
+	hyperlinks = true
+	navigate = true
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	color-moved = default
+
 [alias]
 	current = symbolic-ref --short HEAD
 	delete-last = branch -d @{-1}
