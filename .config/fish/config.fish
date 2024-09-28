@@ -28,3 +28,6 @@ alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 # fw
 command -q fw && fw print-fish-setup -f | source
+
+# fzf
+command -q fzf && fzf --fish | source
