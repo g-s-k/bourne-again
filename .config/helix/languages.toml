@@ -1,5 +1,6 @@
 [language-server.rust-analyzer]
 check.command = "clippy"
+check.extraArgs = ["--benches", "--examples", "--all-targets"]
 hover.memoryLayout.niches = true
 
 [[language]]
@@ -7,4 +8,8 @@ name = "rust"
 
 [[language]]
 name = "c"
+auto-format = true
+
+[[language]]
+name = "cpp"
 auto-format = true

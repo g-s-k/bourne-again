@@ -28,6 +28,12 @@ set ignorecase
 set smartcase
 set nohlsearch
 
+" command / find completion
+set path+=**
+set wildmenu
+set wildignore+=*.o
+set wildignore+=*.rlib
+
 " tabs
 set expandtab
 set tabstop=2
@@ -77,11 +83,6 @@ noremap <silent> ]t :tabnext<CR>
 noremap <silent> [b :bprev<CR>
 noremap <silent> ]b :bnext<CR>
 
-noremap <silent> <Leader>h <C-w>h
-noremap <silent> <Leader>j <C-w>j
-noremap <silent> <Leader>k <C-w>k
-noremap <silent> <Leader>l <C-w>l
-
 noremap <silent> <Leader>q :cclose<CR>
 noremap <silent> [q :cprev<CR>
 noremap <silent> ]q :cnext<CR>
@@ -97,6 +98,33 @@ vnoremap s[ c[<C-r>"]<ESC>
 vnoremap s] c[ <C-r>" ]<ESC>
 vnoremap s{ c{<C-r>"}<ESC>
 vnoremap s} c{ <C-r>" }<ESC>
+
+" tmux
+if empty($TMUX)
+  command! NavigateLeft :wincmd h
+  command! NavigateDown :wincmd j
+  command! NavigateUp :wincmd k
+  command! NavigateRight :wincmd l
+else
+  function! TryVimNavigate(direction)
+    let nr = winnr()
+    execute 'wincmd ' . a:direction
+    if nr == winnr()
+      let cmd = 'tmux select-pane -t ' . shellescape($TMUX_PANE) . ' -' . tr(a:direction, 'hjkl', 'LDUR')
+      call system(cmd)
+    endif
+  endfunction
+
+  command! NavigateLeft :call TryVimNavigate('h')
+  command! NavigateDown :call TryVimNavigate('j')
+  command! NavigateUp :call TryVimNavigate('k')
+  command! NavigateRight :call TryVimNavigate('l')
+endif
+
+noremap <silent> <C-h> :NavigateLeft<CR>
+noremap <silent> <C-j> :NavigateDown<CR>
+noremap <silent> <C-k> :NavigateUp<CR>
+noremap <silent> <C-l> :NavigateRight<CR>
 
 " set ripgrep as grepprg
 if executable("rg")
@@ -165,6 +193,7 @@ if isdirectory(s:lsp_plugin_dir)
 	noremap <silent> <Leader>k :LspHover<CR>
 	noremap <silent> <Leader>d :LspDiag show<CR>
 	noremap <silent> <Leader>F :LspFormat<CR>
+	noremap <silent> <Leader>r :LspRename<CR>
 	noremap <silent> [d :LspDiag prevWrap<CR>
 	noremap <silent> ]d :LspDiag nextWrap<CR>
 	noremap <silent> gd :LspGotoDefinition<CR>
