@@ -48,24 +48,12 @@ let g:netrw_liststyle=3
 " status line
 set laststatus=2
 
-function! StatuslineGit()
-	let l:branchname = system('git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d "\n"')
-	return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-
 set statusline=
-set statusline+=%#PmenuSel#
-set statusline+=%{StatuslineGit()} 
-set statusline+=%#LineNr#
-set statusline+=\ %f
+set statusline+=%f
 set statusline+=%m\ 
 set statusline+=%= 
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c\ 
+set statusline+=\ %l:%c
+set statusline+=\ %p%%\ 
 
 " system clipboard
 noremap <silent> <Leader>y "+yy
@@ -165,40 +153,3 @@ if isdirectory('/opt/homebrew/opt/fzf')
 	noremap <silent> <Leader>b :FZFBuffers<CR>
 endif
 
-let s:lsp_plugin_dir = environ()['XDG_CONFIG_HOME'] . '/vim/pack/downloads/opt/lsp'
-if isdirectory(s:lsp_plugin_dir)
-	packadd lsp
-
-  call LspOptionsSet(#{
-        \ showDiagWithVirtualText: v:true,
-        \ })
-
-	call LspAddServer([#{
-        \	name: 'clangd',
-        \	filetype: ['c', 'cpp'],
-        \	path: '/usr/bin/clangd',
-        \	args: ['--background-index'],
-        \ }])
-
-	call LspAddServer([#{
-        \	name: 'rust',
-        \	filetype: ['rust'],
-        \	path: '/Users/gsk/.cargo/bin/rust-analyzer',
-        \	args: [],
-        \ initializationOptions: {'check': {'command': 'clippy'}},
-        \	syncInit: v:true,
-        \ }])
-
-	noremap <silent> <Leader>a :LspCodeAction<CR>
-	noremap <silent> <Leader>k :LspHover<CR>
-	noremap <silent> <Leader>d :LspDiag show<CR>
-	noremap <silent> <Leader>F :LspFormat<CR>
-	noremap <silent> <Leader>r :LspRename<CR>
-	noremap <silent> [d :LspDiag prevWrap<CR>
-	noremap <silent> ]d :LspDiag nextWrap<CR>
-	noremap <silent> gd :LspGotoDefinition<CR>
-	noremap <silent> gi :LspGotoImpl<CR>
-	noremap <silent> gr :LspShowReferences<CR>
-else
-	echoerr 'LSP not installed. Install yegappan/lsp to ' . s:lsp_plugin_dir
-endif
