@@ -11,8 +11,6 @@ brew "neovim"
 brew "ripgrep"
 brew "tealdeer"
 brew "tmux"
-brew "tokei"
-brew "tree"
 
 # utilities
 brew "curl"
