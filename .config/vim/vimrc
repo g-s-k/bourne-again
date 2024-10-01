@@ -141,6 +141,10 @@ noremap <Leader>G :silent execute "grep! " . shellescape(expand("<cWORD>"))<CR>:
 if isdirectory('/opt/homebrew/opt/fzf')
 	set rtp+=/opt/homebrew/opt/fzf
 
+	if exists('$TMUX')
+		let g:fzf_layout = { 'tmux': '90%,70%' }
+	endif
+
 	command! FZFBuffers call fzf#run(fzf#wrap({
 				\	'source': filter(map(
         \   getbufinfo({'buflisted': 1}),
