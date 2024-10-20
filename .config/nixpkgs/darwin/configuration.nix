@@ -1,6 +1,49 @@
 { config, pkgs, ... }:
 
 {
+	system = {
+		defaults = {
+			NSGlobalDomain = {
+				AppleInterfaceStyle = "Dark";
+
+
+				NSAutomaticCapitalizationEnabled = false;
+				NSAutomaticDashSubstitutionEnabled = false;
+				NSAutomaticInlinePredictionEnabled = false;
+				NSAutomaticPeriodSubstitutionEnabled = false;
+				NSAutomaticQuoteSubstitutionEnabled = false;
+				NSAutomaticSpellingCorrectionEnabled = false;
+			};
+
+			dock = {
+				autohide = true;
+				orientation = "left";
+				showhidden = true;
+
+				# show desktop when cursor is moved to the bottom left corner of the screen
+				wvous-bl-corner = 4;
+			};
+
+			finder = {
+				AppleShowAllExtensions = true;
+				AppleShowAllFiles = true;
+				FXEnableExtensionChangeWarning = false;
+				FXPreferredViewStyle = "Nlsv"; # prefer list view
+				ShowPathbar = true;
+				QuitMenuItem = true;
+			};
+
+			screencapture.disable-shadow = true;
+
+			WindowManager.EnableStandardClickToShowDesktop = false;
+		};
+
+		keyboard = {
+			enableKeyMapping = true;
+			remapCapsLockToEscape = true;
+		};
+	};
+
 	# Packages not implicitly installed below under `programs`
   environment.systemPackages =
 		with pkgs; [
