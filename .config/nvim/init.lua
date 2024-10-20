@@ -189,7 +189,18 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.lsp.start({
       name = 'rust-analyzer',
       cmd = {'rust-analyzer'},
-      root_dir = vim.fs.root(ev.buf, {'Cargo.toml'}),
+      root_dir = vim.fs.root(ev.buf, {'Cargo.lock'}),
+    })
+  end
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'zig',
+  callback = function(ev)
+    vim.lsp.start({
+      name = 'zls',
+      cmd = {'zls'},
+      root_dir = vim.fs.root(ev.buf, {'build.zig'}),
     })
   end
 })
