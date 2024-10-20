@@ -11,12 +11,6 @@ set -x GNUPGHOME "$XDG_DATA_HOME/gnupg"
 set -x TODOTXT_CFG_FILE "$XDG_CONFIG_HOME/todo/todo.cfg"
 set -x FZF_TMUX_OPTS -p
 
-# package manager
-if not functions -q fisher
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
-end
-
 # bindings
 fish_vi_key_bindings
 bind -M insert \cp accept-autosuggestion
