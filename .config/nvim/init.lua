@@ -24,6 +24,7 @@ vim.opt.wildignore:append { '*.o', '*.rlib' }
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.shiftround = true
+vim.o.expandtab = true
 
 -- netrw file explorer
 vim.g.netrw_fastbrowse = 0
