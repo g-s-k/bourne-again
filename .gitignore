@@ -27,6 +27,11 @@ Brewfile.lock.json
 .cargo/
 .rustup/
 
+# nix
+.nix-channels
+.nix-defexpr/
+.nix-profile
+
 # various configs
 .bash_profile
 .bash_site
