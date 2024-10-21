@@ -50,7 +50,6 @@
       delta
       fzf
       htop
-      jack2
       julia-bin
       just
       neovim
