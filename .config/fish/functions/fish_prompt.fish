@@ -69,6 +69,13 @@ function fish_prompt --description 'Write out the prompt'
             set suffix '$'
     end
 
+    # in nix-shell?
+    if test -n "$IN_NIX_SHELL"
+      set_color --bold yellow
+      echo -n "{NIX} "
+      set_color normal
+    end
+
     # PWD
     set_color $color_cwd
     echo -n (prompt_pwd)
