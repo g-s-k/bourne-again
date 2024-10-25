@@ -26,7 +26,7 @@ export HISTFILE="$XDG_DATA_HOME/bash/history"
 shopt -s checkwinsize
 
 # editor configuration
-export EDITOR=hx
+export EDITOR=nvim
 
 # Alias definitions
 if [[ "$(uname)" = "Darwin" ]]; then
