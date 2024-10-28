@@ -1,5 +1,6 @@
 -- appearance
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.showtabline = 2
 
 vim.o.cursorline = true
@@ -7,7 +8,7 @@ vim.o.cursorlineopt = 'number'
 vim.o.signcolumn = 'yes'
 
 -- behavior
-vim.o.scrolloff = 10
+vim.o.scrolloff = 8
 vim.g.mapleader = ' '
 vim.o.wrap = false
 
