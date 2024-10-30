@@ -16,6 +16,7 @@ Brewfile.lock.json
 .config/fisher/
 
 # git
+.config/git/exclude
 .config/git/pii
 
 # [n]vim

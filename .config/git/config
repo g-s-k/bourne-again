@@ -2,6 +2,7 @@
 	path = pii
 
 [core]
+  excludesfile = exclude
   pager = delta
 
 [init]
