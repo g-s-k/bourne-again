@@ -22,8 +22,5 @@ alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
 abbr --add rgd --position command --set-cursor 'rg --json % | delta'
 
-# fw
-command -q fw && fw print-fish-setup -f | source
-
 # fzf
 command -q fzf && fzf --fish | source
