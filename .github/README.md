@@ -19,11 +19,17 @@ note that the alias defined in the second step is identical to the one in
 
 ### install useful tools
 
-On macOS, install [Homebrew](https://brew.sh), then run `brew bundle`. On a
-Linux system, install a minimum of `fish`, `fzf`, `helix`, and `ripgrep` with
-the system package manager. 
+On macOS, install [nix-darwin](https://github.com/LnL7/nix-darwin) and then run
+`darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix`.
+
+On a Linux system, install a minimum of `fish`, `neovim`, `ripgrep`, and `tmux`
+with the system package manager. 
 
 ### site-specific configuration
+
+If `$SHELL=bash`, ensure that `~/.bashrc` sources user configuration files in
+`~/.bashrc.d/`. If `$SHELL=zsh`, ensure that `.zshprofile` ends with `exec
+fish`.
 
 use universal variables (`set -U ...`) to customize the shell environment. one
 very helpful one is
@@ -31,7 +37,3 @@ very helpful one is
 for executables. note that this does not include `$HOME/.local/bin` by default
 in fish. if you have additional functions or aliases, place them in the
 conventional spot (`$HOME/.config/fish/functions/`)
-
-## Vim
-
-Vim config is in [`.config/vim`](../.config/vim).
