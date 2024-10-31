@@ -161,6 +161,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end
 		if client.supports_method('textDocument/formatting') then
 			vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, { silent = true })
+
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				callback = function(args)
+					vim.lsp.buf.format({ timeout_ms = 500 })
+				end,
+			})
 		end
 		if client.supports_method('textDocument/implementation*') then
 			vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true })
