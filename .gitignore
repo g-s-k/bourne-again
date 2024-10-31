@@ -35,7 +35,7 @@ Brewfile.lock.json
 
 # various configs
 .bash_profile
-.bash_site
+.bashrc
 .config/alacritty/
 .config/containers/
 .config/htop/htoprc
