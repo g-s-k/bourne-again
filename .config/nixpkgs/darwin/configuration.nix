@@ -58,6 +58,7 @@
       rustup
       tealdeer
       tmux
+      utm
       vim
 
       fishPlugins.z
@@ -89,6 +90,7 @@
       "discord"
       # "gcc-arm-embedded" # needed to build with QMK
       "gimp"
+      "keymapp"
       "slack"
     ];
   };
