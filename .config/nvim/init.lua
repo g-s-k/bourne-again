@@ -38,8 +38,6 @@ vim.keymap.set('n', '<leader>y', '"+yy', { silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { silent = true })
 
 -- navigation
-vim.keymap.set('n', '<leader>e', ':25Lex<CR>', { silent = true })
-
 vim.keymap.set('n', '<leader>t', ':tabnew<CR>', { silent = true })
 vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { silent = true })
 vim.keymap.set('n', '[t', ':tabprev<CR>', { silent = true })
@@ -147,6 +145,7 @@ end, { silent = true })
 
 -- lsp
 
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { silent = true })
 vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })
 
@@ -154,13 +153,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if client.supports_method('textDocument/codeAction') then
-			vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { silent = true })
+			vim.keymap.set({'n', 'v'}, '<leader>a', vim.lsp.buf.code_action, { silent = true })
 		end
 		if client.supports_method('textDocument/definition') then
 			vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true })
 		end
 		if client.supports_method('textDocument/formatting') then
-			vim.keymap.set('n', '<leader>F', vim.lsp.buf.format, { silent = true })
+			vim.keymap.set({'n', 'v'}, '<leader>F', vim.lsp.buf.format, { silent = true })
 
 			vim.api.nvim_create_autocmd('BufWritePre', {
 				callback = function(args)
