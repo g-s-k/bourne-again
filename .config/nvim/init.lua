@@ -67,6 +67,18 @@ end, { silent = true })
 vim.keymap.set('n', '[l', ':lprev<CR>', { silent = true })
 vim.keymap.set('n', ']l', ':lnext<CR>', { silent = true })
 
+-- auto-pairs
+vim.keymap.set('i', '[', '[]<LEFT>', { silent = true })
+vim.keymap.set('i', '{', '{}<LEFT>', { silent = true })
+vim.keymap.set('i', '(', '()<LEFT>', { silent = true })
+vim.keymap.set('i', '/*', '/**/<LEFT><LEFT>', { silent = true })
+
+vim.keymap.set('i', '"', '""<LEFT>', { silent = true })
+vim.keymap.set('i', "'", "''<LEFT>", { silent = true })
+
+vim.keymap.set('i', '`', '``<LEFT>', { silent = true })
+vim.keymap.set('i', '```', '```<CR>```<UP><END>', { silent = true })
+
 -- surround (basic)
 vim.keymap.set('v', 's(', 'c(<C-r>")<ESC>', { silent = true })
 vim.keymap.set('v', 's)', 'c( <C-r>" )<ESC>', { silent = true })
@@ -74,6 +86,15 @@ vim.keymap.set('v', 's[', 'c[<C-r>"]<ESC>', { silent = true })
 vim.keymap.set('v', 's]', 'c[ <C-r>" ]<ESC>', { silent = true })
 vim.keymap.set('v', 's{', 'c{<C-r>"}<ESC>', { silent = true })
 vim.keymap.set('v', 's}', 'c{ <C-r>" }<ESC>', { silent = true })
+
+-- folding
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 0
+vim.opt.foldnestmax = 4
+vim.opt.foldtext = ""
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- tmux
 local try_navigate_panes = function(direction)
