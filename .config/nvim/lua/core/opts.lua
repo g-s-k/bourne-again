@@ -35,7 +35,7 @@ vim.g.netrw_liststyle = 3
 -- folding
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 0
+vim.opt.foldlevelstart = 99
 vim.opt.foldnestmax = 4
 vim.opt.foldtext = ""
 vim.opt.foldmethod = "expr"
