@@ -1,7 +1,7 @@
 -- appearance
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.showtabline = 2
+vim.opt.showtabline = 1
 
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
