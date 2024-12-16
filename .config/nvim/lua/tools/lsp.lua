@@ -64,3 +64,13 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function(ev)
+    vim.lsp.start({
+      name = 'lua-ls',
+      cmd = { 'lua-language-server' },
+    })
+  end
+})

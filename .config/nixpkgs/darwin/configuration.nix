@@ -52,6 +52,7 @@
       htop
       julia-bin
       just
+      lua-language-server
       neovim
       ninja
       ripgrep
