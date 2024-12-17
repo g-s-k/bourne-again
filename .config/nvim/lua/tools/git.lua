@@ -1,7 +1,12 @@
 local float = require('util.float')
 
 local is_repo = function()
-  return vim.fs.root(0, { '.git' })
+  if vim.fs.root(0, { '.git' }) then
+    return true
+  end
+
+  vim.notify("Not in a git repository.", vim.log.levels.WARN)
+  return false
 end
 
 local any_diff = function(opts)

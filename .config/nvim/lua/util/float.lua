@@ -28,7 +28,7 @@ function M.open(opts)
 
   -- Run a command.
   if opts.cmd then
-    local cmd = type(opts.cmd) == "table" and opts.cmd or { opts.cmd }
+    local cmd = type(opts.cmd) == "table" and opts.cmd or { 'sh', '-c', opts.cmd }
     vim.fn.termopen(cmd, {
       on_exit = function(_, _, _)
         if opts.remain then
@@ -57,13 +57,22 @@ end
 function M.run_shell(opts)
   opts = opts or {}
 
-  local cmd = opts.cmd
-
-  if opts.use_pager then
-    cmd = cmd .. ' | ' .. shell.get_pager()
+  if not opts.cmd then
+    vim.notify("No command provided.", vim.log.levels.ERROR)
+    return
   end
 
-  M.open { cmd = { 'sh', '-c', cmd } }
+  if type(opts.cmd) ~= 'string' then
+    vim.notify("Command had wrong type (should be string): " .. type(opts.cmd), vim.log.levels.ERROR)
+    return
+  end
+
+  if opts.use_pager then
+    opts.use_pager = nil
+    opts.cmd = opts.cmd .. ' | ' .. shell.get_pager()
+  end
+
+  M.open(opts)
 end
 
 return M
