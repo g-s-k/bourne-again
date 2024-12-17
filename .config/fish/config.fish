@@ -19,6 +19,7 @@ bind -M insert \cp accept-autosuggestion
 alias cfg 'git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 alias tmux "tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+abbr --add tmxu tmux
 
 abbr --add rgd --position command --set-cursor 'rg --json % | delta'
 
