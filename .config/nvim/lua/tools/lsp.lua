@@ -50,6 +50,16 @@ vim.api.nvim_create_autocmd('FileType', {
       name = 'rust-analyzer',
       cmd = { 'rust-analyzer' },
       root_dir = vim.fs.root(ev.buf, { 'Cargo.lock' }),
+      settings = {
+        ["rust-analyzer"] = {
+          check = {
+            command = 'clippy',
+          },
+          diagnostics = {
+            disabled = { 'inactive-code' },
+          },
+        },
+      },
     })
   end
 })
