@@ -52,6 +52,10 @@ vim.api.nvim_create_autocmd('FileType', {
       root_dir = vim.fs.root(ev.buf, { 'Cargo.lock' }),
       settings = {
         ["rust-analyzer"] = {
+          cargo = {
+            -- Use a sub-directory of the `target` directory so it doesn't mess with other compilation
+            targetDir = true,
+          },
           check = {
             command = 'clippy',
           },
