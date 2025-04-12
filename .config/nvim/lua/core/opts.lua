@@ -11,6 +11,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.scrolloff = 8
 vim.g.mapleader = ' '
 vim.opt.wrap = false
+vim.opt.completeopt = { 'menu', 'popup' }
 
 -- search
 vim.opt.ignorecase = true
