@@ -41,6 +41,8 @@
       enableKeyMapping = true;
       remapCapsLockToEscape = true;
     };
+
+    primaryUser = "gsk";
   };
 
   # Packages not implicitly installed below under `programs`
@@ -68,7 +70,7 @@
 
   # On first run, use:
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+  environment.darwinConfig = "/Users/gsk/.config/nixpkgs/darwin/configuration.nix";
 
   # manage Homebrew packages using Nix
   homebrew = {
@@ -105,11 +107,10 @@
   };
 
   # Auto-upgrade nix packages and run as a daemon
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
 
   # Allow using TouchID for sudo
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   # Used for backwards compatibility. Before changing, run this and review:
   # $ darwin-rebuild changelog
