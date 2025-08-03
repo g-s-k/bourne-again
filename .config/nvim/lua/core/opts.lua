@@ -7,6 +7,8 @@ vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
 vim.opt.signcolumn = 'yes'
 
+vim.opt.winborder = 'rounded'
+
 -- behavior
 vim.opt.scrolloff = 8
 vim.g.mapleader = ' '
