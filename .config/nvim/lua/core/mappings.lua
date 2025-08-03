@@ -6,11 +6,6 @@ vim.keymap.set('n', '<leader>p', '"+p', { silent = true })
 -- navigation
 vim.keymap.set('n', '<leader>t', ':tabnew<CR>', { silent = true })
 vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { silent = true })
-vim.keymap.set('n', '[t', ':tabprev<CR>', { silent = true })
-vim.keymap.set('n', ']t', ':tabnext<CR>', { silent = true })
-
-vim.keymap.set('n', '[b', ':bprev<CR>', { silent = true })
-vim.keymap.set('n', ']b', ':bnext<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>q', function()
   local tabnr = vim.fn.tabpagenr()
@@ -23,15 +18,11 @@ vim.keymap.set('n', '<leader>q', function()
     vim.cmd.copen()
   end
 end, { silent = true })
-vim.keymap.set('n', '[q', ':cprev<CR>', { silent = true })
-vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>l', function()
   -- TODO
   vim.cmd.lclose()
 end, { silent = true })
-vim.keymap.set('n', '[l', ':lprev<CR>', { silent = true })
-vim.keymap.set('n', ']l', ':lnext<CR>', { silent = true })
 
 -- auto-pairs
 vim.keymap.set('i', '[', '[]<LEFT>', { silent = true })

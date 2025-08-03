@@ -5,9 +5,6 @@ vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.supports_method('textDocument/codeAction') then
-      vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, { silent = true })
-    end
     if client.supports_method('textDocument/definition') then
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true })
     end
@@ -22,12 +19,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
     if client.supports_method('textDocument/implementation*') then
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true })
-    end
-    if client.supports_method('textDocument/references') then
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, { silent = true })
-    end
-    if client.supports_method('textDocument/rename') then
-      vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { silent = true })
     end
   end,
 })
