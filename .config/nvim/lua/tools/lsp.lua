@@ -1,3 +1,7 @@
+vim.diagnostic.config({
+  virtual_lines = true,
+})
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { silent = true })
 vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })
@@ -17,65 +21,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end,
       })
     end
-    if client.supports_method('textDocument/implementation*') then
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { silent = true })
-    end
   end,
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp' },
-  callback = function(ev)
-    vim.lsp.start({
-      name = 'clangd',
-      cmd = { 'clangd', '--clang-tidy' },
-      root_dir = vim.fs.root(ev.buf, { 'CMakeLists.txt', 'Makefile', 'README.md' }),
-    })
-  end
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'rust',
-  callback = function(ev)
-    vim.lsp.start({
-      name = 'rust-analyzer',
-      cmd = { 'rust-analyzer' },
-      root_dir = vim.fs.root(ev.buf, { 'Cargo.lock' }),
-      settings = {
-        ["rust-analyzer"] = {
-          cargo = {
-            -- Use a sub-directory of the `target` directory so it doesn't mess with other compilation
-            targetDir = true,
-          },
-          check = {
-            command = 'clippy',
-          },
-          diagnostics = {
-            disabled = { 'inactive-code' },
-          },
-        },
-      },
-    })
-  end
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'zig',
-  callback = function(ev)
-    vim.lsp.start({
-      name = 'zls',
-      cmd = { 'zls' },
-      root_dir = vim.fs.root(ev.buf, { 'build.zig' }),
-    })
-  end
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function(ev)
-    vim.lsp.start({
-      name = 'lua-ls',
-      cmd = { 'lua-language-server' },
-    })
-  end
-})
+vim.lsp.enable({ 'clangd', 'rust-analyzer', 'lua-ls', 'zls' })
