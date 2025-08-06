@@ -24,4 +24,5 @@ abbr --add tmxu tmux
 abbr --add rgd --position command --set-cursor 'rg --json % | delta'
 
 # fzf
+set -x FZF_CTRL_T_OPTS "--walker-skip .git,target --multi"
 command -q fzf && fzf --fish | source
