@@ -4,7 +4,7 @@ end
 
 local nix_fzf_path = string.gsub(
   vim.fn.system {
-    'sh', '-c', 'realpath "$(which fzf)/../../share/vim-plugins/fzf"'
+    'sh', '-c', 'echo "$(dirname $(realpath $(which fzf)))/../share/vim-plugins/fzf"'
   },
   '(.-)%s*$',
   '%1'
