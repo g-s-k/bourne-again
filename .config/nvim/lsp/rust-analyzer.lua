@@ -11,8 +11,15 @@ return {
       check = {
         command = 'clippy',
       },
+      assist = {
+        preferSelf = true,
+      },
       diagnostics = {
         disabled = { 'inactive-code' },
+        styleLints = { enable = true },
+      },
+      hover = {
+        memoryLayout = { niches = true },
       },
     },
   },
