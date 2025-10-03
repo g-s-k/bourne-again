@@ -14,6 +14,7 @@ vim.opt.scrolloff = 8
 vim.g.mapleader = ' '
 vim.opt.wrap = false
 vim.opt.completeopt = { 'menu', 'popup' }
+vim.opt.exrc = true
 
 -- search
 vim.opt.ignorecase = true
