@@ -8,9 +8,11 @@ vim.opt.cursorlineopt = 'number'
 vim.opt.signcolumn = 'yes'
 
 vim.opt.winborder = 'rounded'
+vim.opt.termguicolors = true
 
 -- behavior
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 4
+vim.opt.sidescrolloff = 8
 vim.g.mapleader = ' '
 vim.opt.wrap = false
 vim.opt.completeopt = { 'menu', 'popup' }
