@@ -62,7 +62,6 @@
       tealdeer
       tmux
       utm
-      vim
 
       fishPlugins.z
       fishPlugins.forgit
