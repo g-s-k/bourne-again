@@ -29,6 +29,7 @@
 	conflicts = diff --name-only --diff-filter=U
 	sui = submodule update --init --recursive
 	edit = ! "git ls-files | fzf --multi --preview='bat --color=always {}' --height '70%' --tmux '70%' --bind \"enter:become(${EDITOR:-vim} {+})\""
+	pri = pull --rebase=interactive origin
 
 	# show history
 	last = log -1 HEAD
