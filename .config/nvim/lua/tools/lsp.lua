@@ -2,6 +2,14 @@ vim.diagnostic.config({
   virtual_lines = true,
 })
 
+vim.keymap.set('n', '<leader>v', function()
+  local cfg = not vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config({ virtual_lines = cfg })
+end, {
+  silent = true,
+  desc = 'Toggle diagnostic virtual_lines setting',
+})
+
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { silent = true })
 vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })

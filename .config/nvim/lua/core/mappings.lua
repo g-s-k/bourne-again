@@ -24,18 +24,6 @@ vim.keymap.set('n', '<leader>l', function()
   vim.cmd.lclose()
 end, { silent = true })
 
--- auto-pairs
-vim.keymap.set('i', '[', '[]<LEFT>', { silent = true })
-vim.keymap.set('i', '{', '{}<LEFT>', { silent = true })
-vim.keymap.set('i', '(', '()<LEFT>', { silent = true })
-vim.keymap.set('i', '/*', '/**/<LEFT><LEFT>', { silent = true })
-
-vim.keymap.set('i', '"', '""<LEFT>', { silent = true })
-vim.keymap.set('i', "'", "''<LEFT>", { silent = true })
-
-vim.keymap.set('i', '`', '``<LEFT>', { silent = true })
-vim.keymap.set('i', '```', '```<CR>```<UP><END>', { silent = true })
-
 -- surround (basic)
 vim.keymap.set('v', 's(', 'c(<C-r>")<ESC>', { silent = true })
 vim.keymap.set('v', 's)', 'c( <C-r>" )<ESC>', { silent = true })
