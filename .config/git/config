@@ -30,6 +30,9 @@
 [diff]
 	color-moved = default
 
+[difftool]
+	trustExitCode = true
+
 [alias]
 	current = symbolic-ref --short HEAD
 	delete-last = branch -d @{-1}
