@@ -28,7 +28,8 @@ vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*.o', '*.rlib' }
 
 -- tabs
-vim.opt.tabstop = 2
+vim.opt.softtabstop = -1
+vim.opt.tabstop = 8
 vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
