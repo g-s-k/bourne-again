@@ -29,3 +29,6 @@ command -q fzf && fzf --fish | source
 
 # neovim
 alias nvimdiff 'nvim -d'
+
+# forgit
+set -x FORGIT_LOG_FZF_OPTS '--reverse'
