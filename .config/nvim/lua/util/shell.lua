@@ -1,7 +1,7 @@
 local M = {}
 
 function M.get_pager()
-  if vim.fn.executable('delta') then
+  if vim.fn.executable('delta') == 1 then
     return 'delta --paging=always'
   elseif vim.env.PAGER then
     return vim.env.PAGER

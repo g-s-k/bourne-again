@@ -9,6 +9,6 @@ require("tools.tmux")
 
 vim.api.nvim_create_user_command('Top', function()
   require("util.float").run_shell {
-    cmd = vim.fn.executable('htop') and 'htop' or 'top',
+    cmd = vim.fn.executable('htop') == 1 and 'htop' or 'top',
   }
 end, {})
