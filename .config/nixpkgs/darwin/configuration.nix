@@ -16,7 +16,7 @@
 
       dock = {
         autohide = true;
-        orientation = "left";
+        orientation = "bottom";
         showhidden = true;
 
         # show desktop when cursor is moved to the bottom left corner of the screen
@@ -109,7 +109,10 @@
   nix.package = pkgs.nix;
 
   # Allow using TouchID for sudo
-  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local = {
+    touchIdAuth = true;
+    reattach = true;
+  };
 
   # Used for backwards compatibility. Before changing, run this and review:
   # $ darwin-rebuild changelog
