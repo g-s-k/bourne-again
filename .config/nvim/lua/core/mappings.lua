@@ -8,11 +8,7 @@ vim.keymap.set('n', '<leader>t', ':tabnew<CR>', { silent = true })
 vim.keymap.set('n', '<leader>x', ':tabclose<CR>', { silent = true })
 
 vim.keymap.set('n', '<leader>q', function()
-  local tabnr = vim.fn.tabpagenr()
-  local window = vim.tbl_filter(function(t)
-    return t.tabnr == tabnr and t.quickfix == 1 and t.loclist == 0
-  end, vim.fn.getwininfo())[1]
-  if window then
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
     vim.cmd.cclose()
   else
     vim.cmd.copen()
@@ -20,8 +16,14 @@ vim.keymap.set('n', '<leader>q', function()
 end, { silent = true })
 
 vim.keymap.set('n', '<leader>l', function()
-  -- TODO
-  vim.cmd.lclose()
+  local loclist = vim.fn.getloclist(0, { winid = 0, size = 0 })
+  if loclist.winid ~= 0 then
+    vim.cmd.lclose()
+  elseif loclist.size > 0 then
+    vim.cmd.lopen()
+  else
+    vim.notify("Location list is empty.", vim.log.levels.INFO)
+  end
 end, { silent = true })
 
 -- surround (basic)
