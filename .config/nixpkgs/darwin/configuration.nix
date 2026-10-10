@@ -48,11 +48,17 @@
   # Packages not implicitly installed below under `programs`
   environment.systemPackages =
     with pkgs; [
+      alacritty
+      alacritty.terminfo
+      audacity
       bat
+      cargo-sweep
+      (callPackage ./darktable.nix { })
       delta
+      ffmpeg
       fzf
       htop
-      julia-bin
+      # julia-bin
       just
       lua-language-server
       neovim
@@ -61,7 +67,6 @@
       rustup
       tealdeer
       tmux
-      utm
 
       fishPlugins.z
       fishPlugins.forgit
@@ -76,9 +81,6 @@
     enable = true;
 
     brews = [
-      "clang-format"
-      "cmake"
-      "ffmpeg"
       "dbus"
       "jack"
       "pkg-config"
@@ -86,13 +88,13 @@
     ];
 
     casks = [
-      "alacritty"
-      "audacity"
       "blackhole-2ch"
       "discord"
       # "gcc-arm-embedded" # needed to build with QMK
       "gimp"
       "keymapp"
+      "pd"
+      "processing"
       "slack"
     ];
   };
@@ -104,6 +106,14 @@
     # Install fish and load the nix-darwin environment into it.
     fish.enable = true;
   };
+
+  # macOS zsh reads the terminfo search path only at startup. Set it for GUI apps so that shells
+  # started by terminal emulators find Nix terminfo entries (e.g. alacritty).
+  launchd.user.envVariables.TERMINFO_DIRS = [
+    "/run/current-system/sw/share/terminfo"
+    "/usr/share/terminfo"
+  ];
+
 
   # Auto-upgrade nix packages and run as a daemon
   nix.package = pkgs.nix;
