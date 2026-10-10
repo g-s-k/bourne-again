@@ -111,6 +111,12 @@
 
     # Install fish and load the nix-darwin environment into it.
     fish.enable = true;
+
+    # use direnv to dynamically load dev shells.
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
   };
 
   # macOS zsh reads the terminfo search path only at startup. Set it for GUI apps so that shells
