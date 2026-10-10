@@ -20,16 +20,13 @@ function M.open(opts)
     height = height,
     row = math.ceil((vim.o.lines - height) / 2),
     col = math.ceil((vim.o.columns - width) / 2),
-    border = "single",
   })
-
-  -- Change to the new window
-  vim.api.nvim_set_current_win(win)
 
   -- Run a command.
   if opts.cmd then
     local cmd = type(opts.cmd) == "table" and opts.cmd or { 'sh', '-c', opts.cmd }
-    vim.fn.termopen(cmd, {
+    vim.fn.jobstart(cmd, {
+      term = true,
       on_exit = function(_, _, _)
         if opts.remain then
           return
