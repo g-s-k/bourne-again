@@ -71,4 +71,4 @@ vim.api.nvim_create_user_command('GRestoreStaged', function() restore { staged =
 vim.keymap.set('n', '<leader>gs', ':GStatus<CR>', { silent = true })
 vim.keymap.set('n', '<leader>ga', ':GAdd<CR>', { silent = true })
 vim.keymap.set('n', '<leader>gr', ':GRestore<CR>', { silent = true })
-vim.keymap.set('n', '<leader>grs', ':GRestoreStaged<CR>', { silent = true })
+vim.keymap.set('n', '<leader>gR', ':GRestoreStaged<CR>', { silent = true })
