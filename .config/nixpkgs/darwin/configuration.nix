@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  home = "/Users/${config.system.primaryUser}";
+in
 {
   system = {
     defaults = {
@@ -74,7 +77,7 @@
 
   # On first run, use:
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "/Users/gsk/.config/nixpkgs/darwin/configuration.nix";
+  environment.darwinConfig = "${home}/.config/nixpkgs/darwin/configuration.nix";
 
   # manage Homebrew packages using Nix
   homebrew = {
