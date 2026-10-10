@@ -129,8 +129,31 @@ in
     "/usr/share/terminfo"
   ];
 
+  # Clean up Rust target directories weekly
+  launchd.user.agents.cleanup-rust-target-dirs = {
+    script = ''
+      echo "cleanup-rust-target-dirs started $(date)"
+      for target in "$HOME"/dev/*/target; do
+        project=$(dirname "$target")
+        [ -f "$project/Cargo.toml" ] || continue
+        if pgrep -qx rust-analyzer; then
+          echo "rust-analyzer is running, skip deleting its target dir in project $project"
+        else
+          rm -rf "$target/rust-analyzer"
+        fi
+        cargo sweep --time 14 "$project"
+      done
+    '';
+    path = [ pkgs.coreutils pkgs.rustup pkgs.cargo-sweep ];
+    serviceConfig = {
+      StartCalendarInterval = [ { Weekday = 0; Hour = 23; Minute = 0; } ];
+      StandardOutPath = "${home}/Library/Logs/cleanup-rust-target-dirs.log";
+      StandardErrorPath = "${home}/Library/Logs/cleanup-rust-target-dirs.log";
+      ProcessType = "Background";
+    };
+  };
 
-  # Auto-upgrade nix packages and run as a daemon
+  # Auto-upgrade nix packages
   nix.package = pkgs.nix;
 
   # Allow using TouchID for sudo
