@@ -43,4 +43,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.enable({ 'clangd', 'rust-analyzer', 'lua-ls', 'zls' })
+-- do not start LSP for `git mergetool`, the conflict markers break syntax
+local is_mergetool = vim.iter(vim.fn.argv()):any(function(arg)
+  -- git gives the base file a name like `foo_BASE_1234.txt`
+  return vim.fs.basename(arg):match('_BASE_%d+') ~= nil
+end)
+if not is_mergetool then
+  vim.lsp.enable({ 'clangd', 'rust-analyzer', 'lua-ls', 'zls' })
+end
