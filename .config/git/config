@@ -71,4 +71,4 @@
 	# branch choreography
 	kill = "!f() { : git checkout; if [ \"$1\" == -f ]; then shift; git reset --hard; else if git dirty; then exit 1; fi; fi; git checkout ${1:-master} && git delete-last || git status; }; f"
 	pick-this = "!f() { : git checkout; CURRENT=$(git current); git checkout $1; shift; git cherry-pick $@ $CURRENT; }; f"
-	detach = "!f() { git dirty && git checkout --detach && git delete-last || git status; }; f"
+	detach = "!f() {if [ \"$1\" == -f ]; then git reset --hard; else if git dirty; then exit 1; fi; fi; git checkout --detach && git delete-last || git status; }; f"
