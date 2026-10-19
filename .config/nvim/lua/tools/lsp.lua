@@ -35,7 +35,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end,
       })
     end
-    if client:supports_method('textDocument/foldingRange') then
+    -- don't replace diff mode's fold settings
+    if client:supports_method('textDocument/foldingRange') and not vim.wo.diff then
       vim.wo[0][0].foldmethod = 'expr'
       vim.wo[0][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     end
