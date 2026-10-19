@@ -2,14 +2,14 @@
 	path = pii
 
 [core]
-  excludesfile = exclude
-  pager = delta
+	excludesfile = exclude
+	pager = delta
 
 [init]
 	defaultBranch = main
 
 [interactive]
-  diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [delta]
 	line-numbers = true
