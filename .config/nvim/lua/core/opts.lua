@@ -24,8 +24,9 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 
 -- command / find completion
-vim.opt.path:append { '**' }
 vim.opt.wildignore:append { '*.o', '*.rlib' }
+vim.opt.wildoptions:append { 'fuzzy' }
+vim.opt.wildmode = 'noselect:lastused,full'
 
 -- tabs
 vim.opt.softtabstop = -1
