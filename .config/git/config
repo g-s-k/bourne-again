@@ -29,9 +29,13 @@
 
 [diff]
 	color-moved = default
+	tool = nvim_difftool
 
 [difftool]
 	trustExitCode = true
+
+[difftool "nvim_difftool"]
+	cmd = nvim -c \"packadd nvim.difftool\" -d \"$LOCAL\" \"$REMOTE\"
 
 [alias]
 	current = symbolic-ref --short HEAD
