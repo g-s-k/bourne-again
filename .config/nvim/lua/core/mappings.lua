@@ -1,6 +1,6 @@
 -- system clipboard
 vim.keymap.set('v', '<leader>y', '"+y', { silent = true })
-vim.keymap.set('n', '<leader>y', '"+yy', { silent = true })
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { silent = true })
 
 -- navigation
