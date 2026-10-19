@@ -8,6 +8,12 @@
 [init]
 	defaultBranch = main
 
+[branch]
+	autoSetupMerge = simple
+
+[push]
+	autoSetupRemote = true
+
 [interactive]
 	diffFilter = delta --color-only
 
@@ -46,7 +52,6 @@
 	sui = submodule update --init --recursive
 	edit = ! "git ls-files | fzf --multi --preview='bat --color=always {}' --height '70%' --tmux '70%' --bind \"enter:become(${EDITOR:-vim} {+})\""
 	pri = pull --rebase=interactive --autostash origin
-	poh = push --set-upstream origin HEAD
 
 	# show history
 	last = log -1 HEAD
