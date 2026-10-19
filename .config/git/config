@@ -2,7 +2,6 @@
 	path = pii
 
 [core]
-	excludesfile = exclude
 	pager = delta
 
 [init]
@@ -43,6 +42,9 @@
 
 [difftool "nvim_difftool"]
 	cmd = nvim -c \"packadd nvim.difftool\" -d \"$LOCAL\" \"$REMOTE\"
+
+[rerere]
+	enabled = true
 
 [alias]
 	current = symbolic-ref --short HEAD
