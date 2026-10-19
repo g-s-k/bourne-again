@@ -17,7 +17,7 @@
 	navigate = true
 
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 	tool = nvimdiff
 
 [mergetool]
@@ -28,6 +28,7 @@
 	layout = "LOCAL,BASE,REMOTE / MERGED"
 
 [diff]
+	algorithm = histogram
 	color-moved = default
 	tool = nvim_difftool
 
