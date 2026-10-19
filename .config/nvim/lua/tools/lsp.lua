@@ -10,7 +10,6 @@ end, {
   desc = 'Toggle diagnostic virtual_lines setting',
 })
 
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { silent = true })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { silent = true })
 vim.keymap.set('n', '<leader>D', vim.diagnostic.setqflist, { silent = true })
 
