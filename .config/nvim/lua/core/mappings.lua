@@ -25,17 +25,3 @@ vim.keymap.set('n', '<leader>l', function()
     vim.notify("Location list is empty.", vim.log.levels.INFO)
   end
 end, { silent = true })
-
--- surround (basic)
-vim.keymap.set('v', 's(', 'c(<C-r>")<ESC>', { silent = true })
-vim.keymap.set('v', 's)', 'c( <C-r>" )<ESC>', { silent = true })
-vim.keymap.set('v', 's[', 'c[<C-r>"]<ESC>', { silent = true })
-vim.keymap.set('v', 's]', 'c[ <C-r>" ]<ESC>', { silent = true })
-vim.keymap.set('v', 's{', 'c{<C-r>"}<ESC>', { silent = true })
-vim.keymap.set('v', 's}', 'c{ <C-r>" }<ESC>', { silent = true })
-vim.keymap.set('v', 's<', 'c<<C-r>"><ESC>', { silent = true })
-vim.keymap.set('v', 's>', 'c< <C-r>" ><ESC>', { silent = true })
-
-vim.keymap.set('v', 's"', 'c"<C-r>""<ESC>', { silent = true })
-vim.keymap.set('v', 's\'', 'c\'<C-r>"\'<ESC>', { silent = true })
-vim.keymap.set('v', 's`', 'c`<C-r>"`<ESC>', { silent = true })
