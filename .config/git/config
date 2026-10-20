@@ -66,9 +66,9 @@
 	untracked = ls-files --other --exclude-standard
 	unstaged-tracked = diff-files --no-ext-diff --quiet
 	uncommitted-tracked = diff-index --no-ext-diff --quiet --cached HEAD --
-	is-clean = ! git unstaged-tracked && git uncommitted-tracked && [ -z "$(git untracked)" ]
+	is-clean = ! git unstaged-tracked && git uncommitted-tracked && [ -z \"$(git untracked)\" ]
 
 	# branch choreography
-	kill = "!f() { : git checkout; if [ \"$1\" == -f ]; then shift; git reset --hard; else if ! git is-clean; then exit 1; fi; fi; git checkout ${1:-master} && git delete-last || git status; }; f"
+	kill = "!f() { : git checkout; if [ \"$1\" = -f ]; then shift; git reset --hard; else if ! git is-clean; then exit 1; fi; fi; git checkout ${1:-master} && git delete-last || git status; }; f"
 	pick-this = "!f() { : git checkout; CURRENT=$(git current); git checkout $1; shift; git cherry-pick $@ $CURRENT; }; f"
-	detach = "!f() {if [ \"$1\" == -f ]; then git reset --hard; else if ! git is-clean; then exit 1; fi; fi; git checkout --detach && git delete-last || git status; }; f"
+	detach = "!f() { if [ \"$1\" = -f ]; then git reset --hard; elif ! git is-clean; then exit 1; fi; git checkout --detach && git delete-last || git status; }; f"
